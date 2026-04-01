@@ -7,9 +7,9 @@ import { getCardDetail } from "@/lib/supabase";
  */
 export async function GET(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  const id = params.id;
+  const { id } = await params;
 
   if (!id) {
     return NextResponse.json({ error: "카드 ID가 필요합니다." }, { status: 400 });
