@@ -98,8 +98,8 @@ export default function DiseaseSearch() {
                     >
                       <td className="px-8 py-5">
                         <div className="flex items-center gap-3">
-                           <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-200 group-hover:scale-110 transition-transform">
-                              <span className="text-white text-xs font-black tracking-tighter">{item.code}</span>
+                           <div className="w-fit min-w-[5rem] px-4 h-10 rounded-xl bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-200 group-hover:scale-105 transition-transform">
+                              <span className="text-white text-[13px] font-black">{item.code}</span>
                            </div>
                         </div>
                       </td>
