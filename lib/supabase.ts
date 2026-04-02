@@ -64,6 +64,24 @@ export async function getCardDetail(id: string) {
 /**
  * Fetches suggestions based on the user's input.
  */
+// 질병코드 검색
+export async function searchDiseaseCodes(query: string) {
+  if (!query) return [];
+
+  const { data, error } = await supabase
+    .from('disease_codes')
+    .select('*')
+    .or(`code.ilike.%${query}%,name_ko.ilike.%${query}%,name_en.ilike.%${query}%`)
+    .limit(50);
+
+  if (error) {
+    console.error('Error searching disease codes:', error);
+    return [];
+  }
+
+  return data;
+}
+
 export async function getSuggestions(query: string) {
   if (!query || query.length < 1) return [];
 

@@ -5,10 +5,12 @@ import { searchInsuranceCards, getSuggestions } from "@/lib/supabase";
 import { InsuranceCard } from "@/lib/types";
 import CardGrid from "@/components/CardGrid";
 import CategoryFilter from "@/components/CategoryFilter";
-import { Search, ShieldCheck, Sparkles, Filter, ChevronDown } from "lucide-react";
+import DiseaseSearch from "@/components/DiseaseSearch";
+import { Search, ShieldCheck, Sparkles, Filter, ChevronDown, BookOpen, Layers } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Home() {
+  const [activeTab, setActiveTab] = useState<"cards" | "disease">("cards");
   const [query, setQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("전체");
   const [cards, setCards] = useState<InsuranceCard[]>([]);
@@ -85,8 +87,11 @@ export default function Home() {
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight leading-[1.1]"
           >
-            고객의 신뢰를 완성하는 <br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">보험 상담 전문가의 보물창고</span>
+            {activeTab === "cards" ? (
+              <>고객의 신뢰를 완성하는 <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">보험 상담 전문가의 보물창고</span></>
+            ) : (
+              <>복잡한 진단서도 한눈에 <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">스마트 질병코드 백과사전</span></>
+            )}
           </motion.h1>
           
           <motion.p 
@@ -95,130 +100,190 @@ export default function Home() {
             transition={{ delay: 0.2 }}
             className="text-slate-400 text-lg mb-12 max-w-2xl mx-auto font-medium"
           >
-            397개의 방대한 보험 카드뉴스를 즉시 검색하세요. <br/>
-            전문성은 높이고, 설명은 더 쉬워지도록 도와드립니다.
+            {activeTab === "cards" ? (
+              <>397개의 방대한 보험 카드뉴스를 즉시 검색하세요. <br/> 전문성은 높이고, 설명은 더 쉬워지도록 도와드립니다.</>
+            ) : (
+              <>전국 6만 건 이상의 표준질병사인분류(KCD-9) 마스터 DB. <br/> 질병코드와 명칭을 실시간으로 확인하고 상담에 활용하세요.</>
+            )}
           </motion.p>
 
-          {/* Luxury Search Bar */}
-          <div className="max-w-3xl mx-auto -mb-10 lg:-mb-14">
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-primary to-indigo-500 rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
-              <div className="relative flex items-center bg-white rounded-2xl shadow-2xl overflow-hidden p-2">
-                <div className="pl-6 pr-4">
-                  <Search className="w-6 h-6 text-slate-300" />
-                </div>
-                <input
-                  type="text"
-                  placeholder="증권분석, 4세대 실손, 암보험 암진단비..."
-                  className="w-full py-5 bg-transparent border-none focus:ring-0 text-slate-700 text-lg font-semibold placeholder:text-slate-300 placeholder:font-medium"
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                  onFocus={() => query && setShowSuggestions(true)}
-                  onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
-                />
-                <button className="hidden md:flex ml-2 mr-2 bg-[#0F172A] hover:bg-slate-800 text-white px-8 py-4 rounded-xl font-black text-sm transition-all shadow-lg active:scale-95">
-                  검색하기
-                </button>
-              </div>
-
-              {/* Real-time Suggestions Dropdown */}
-              <AnimatePresence>
-                {showSuggestions && suggestions.length > 0 && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    className="absolute left-0 right-0 top-full mt-3 bg-white/95 backdrop-blur-xl border border-slate-200 rounded-2xl shadow-2xl overflow-hidden z-50 p-2"
-                  >
-                    <div className="px-4 py-2 border-b border-slate-50 mb-1">
-                      <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest flex items-center gap-2">
-                        <Sparkles className="w-3 h-3 text-blue-500" />
-                        관련 키워드 추천
-                      </p>
-                    </div>
-                    {suggestions.map((suggestion, index) => (
-                      <button
-                        key={index}
-                        onClick={() => {
-                          setQuery(suggestion);
-                          setShowSuggestions(false);
-                        }}
-                        className="w-full text-left px-5 py-3.5 hover:bg-slate-50 transition-colors flex items-center gap-3 group/item"
-                      >
-                        <Search className="w-4 h-4 text-slate-300 group-hover/item:text-primary" />
-                        <span className="text-slate-700 font-bold text-sm truncate">{suggestion}</span>
-                        <ChevronDown className="w-3 h-3 text-slate-200 ml-auto -rotate-90" />
-                      </button>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
+          {/* Premium Tab Switcher */}
+          <div className="flex justify-center mb-10">
+            <div className="bg-white/5 backdrop-blur-md p-1.5 rounded-2xl border border-white/10 flex gap-2">
+              <button 
+                onClick={() => setActiveTab("cards")}
+                className={`flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-black transition-all ${
+                  activeTab === "cards" 
+                  ? "bg-white text-[#0F172A] shadow-xl" 
+                  : "text-white/60 hover:text-white"
+                }`}
+              >
+                <Layers className="w-4 h-4" />
+                보험 카드뉴스
+              </button>
+              <button 
+                onClick={() => setActiveTab("disease")}
+                className={`flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-black transition-all ${
+                  activeTab === "disease" 
+                  ? "bg-white text-[#0F172A] shadow-xl" 
+                  : "text-white/60 hover:text-white"
+                }`}
+              >
+                <BookOpen className="w-4 h-4" />
+                질병코드 사전
+              </button>
             </div>
           </div>
+
+          {/* Luxury Search Bar (Only for Cards) */}
+          {activeTab === "cards" && (
+            <div className="max-w-3xl mx-auto -mb-10 lg:-mb-14 text-left">
+              <div className="relative group">
+                <div className="absolute -inset-1 bg-gradient-to-r from-primary to-indigo-500 rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+                <div className="relative flex items-center bg-white rounded-2xl shadow-2xl overflow-hidden p-2">
+                  <div className="pl-6 pr-4">
+                    <Search className="w-6 h-6 text-slate-300" />
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="증권분석, 4세대 실손, 암보험 암진단비..."
+                    className="w-full py-5 bg-transparent border-none focus:ring-0 text-slate-700 text-lg font-semibold placeholder:text-slate-300 placeholder:font-medium"
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                    onFocus={() => query && setShowSuggestions(true)}
+                    onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
+                  />
+                  <button className="hidden md:flex ml-2 mr-2 bg-[#0F172A] hover:bg-slate-800 text-white px-8 py-4 rounded-xl font-black text-sm transition-all shadow-lg active:scale-95">
+                    검색하기
+                  </button>
+                </div>
+
+                <AnimatePresence>
+                  {showSuggestions && suggestions.length > 0 && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      className="absolute left-0 right-0 top-full mt-3 bg-white/95 backdrop-blur-xl border border-slate-200 rounded-2xl shadow-2xl overflow-hidden z-50 p-2"
+                    >
+                      <div className="px-4 py-2 border-b border-slate-50 mb-1">
+                        <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest flex items-center gap-2">
+                          <Sparkles className="w-3 h-3 text-blue-500" />
+                          관련 키워드 추천
+                        </p>
+                      </div>
+                      {suggestions.map((suggestion, index) => (
+                        <button
+                          key={index}
+                          onClick={() => {
+                            setQuery(suggestion);
+                            setShowSuggestions(false);
+                          }}
+                          className="w-full text-left px-5 py-3.5 hover:bg-slate-50 transition-colors flex items-center gap-3 group/item"
+                        >
+                          <Search className="w-4 h-4 text-slate-300 group-hover/item:text-primary" />
+                          <span className="text-slate-700 font-bold text-sm truncate">{suggestion}</span>
+                          <ChevronDown className="w-3 h-3 text-slate-200 ml-auto -rotate-90" />
+                        </button>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
       {/* Results & Filters Container */}
       <section className="max-w-7xl mx-auto px-6 py-20 mt-8">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-12">
-          <div className="flex flex-col">
-             <div className="flex items-center gap-3 mb-2">
-                <div className="w-2 h-8 bg-blue-600 rounded-full"></div>
-                <h2 className="text-2xl font-black text-slate-800 tracking-tight">자료 검색 결과</h2>
-             </div>
-             <p className="text-slate-400 text-sm font-semibold ml-5">
-               {loading ? "데이터를 분석 중입니다..." : `총 ${cards.length}건의 전문 카드뉴스가 발견되었습니다.`}
-             </p>
-          </div>
-
-          <div className="flex gap-4 items-center">
-             <div className="flex items-center gap-2 px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-slate-600 text-xs font-bold cursor-pointer hover:bg-slate-50 transition-colors shadow-sm">
-                <Filter className="w-4 h-4" />
-                필터 정렬
-                <ChevronDown className="w-3.5 h-3.5" />
-             </div>
-          </div>
-        </div>
-
-        {/* Categories Section */}
-        <div className="mb-14 overflow-x-auto pb-4 scrollbar-hide">
-          <CategoryFilter 
-            categories={categories}
-            selected={selectedCategory}
-            onSelect={setSelectedCategory}
-          />
-        </div>
-
-        {/* Card Grid with AnimatePresence */}
         <AnimatePresence mode="wait">
-          {loading ? (
-             <motion.div 
-               initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-             >
-                {[...Array(8)].map((_, i) => (
-                  <div key={i} className="bg-white rounded-3xl h-[400px] border border-slate-100 flex flex-col p-6 animate-pulse">
-                    <div className="h-48 bg-slate-100 rounded-2xl mb-4"></div>
-                    <div className="h-6 bg-slate-100 rounded-lg w-3/4 mb-3"></div>
-                    <div className="h-4 bg-slate-100 rounded-lg w-1/2 mb-6"></div>
-                    <div className="mt-auto h-12 bg-slate-100 rounded-xl"></div>
+          {activeTab === "cards" ? (
+            <motion.div
+              key="cards-view"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 20 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-12">
+                <div className="flex flex-col">
+                   <div className="flex items-center gap-3 mb-2">
+                      <div className="w-2 h-8 bg-blue-600 rounded-full"></div>
+                      <h2 className="text-2xl font-black text-slate-800 tracking-tight">자료 검색 결과</h2>
+                   </div>
+                   <p className="text-slate-400 text-sm font-semibold ml-5">
+                     {loading ? "데이터를 분석 중입니다..." : `총 ${cards.length}건의 전문 카드뉴스가 발견되었습니다.`}
+                   </p>
+                </div>
+
+                <div className="flex gap-4 items-center">
+                   <div className="flex items-center gap-2 px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-slate-600 text-xs font-bold cursor-pointer hover:bg-slate-50 transition-colors shadow-sm">
+                      <Filter className="w-4 h-4" />
+                      필터 정렬
+                      <ChevronDown className="w-3.5 h-3.5" />
+                   </div>
+                </div>
+              </div>
+
+              {/* Categories Section */}
+              <div className="mb-14 overflow-x-auto pb-4 scrollbar-hide">
+                <CategoryFilter 
+                  categories={categories}
+                  selected={selectedCategory}
+                  onSelect={setSelectedCategory}
+                />
+              </div>
+
+              {/* Card Grid */}
+              {loading ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                  {[...Array(8)].map((_, i) => (
+                    <div key={i} className="bg-white rounded-3xl h-[400px] border border-slate-100 flex flex-col p-6 animate-pulse">
+                      <div className="h-48 bg-slate-100 rounded-2xl mb-4"></div>
+                      <div className="h-6 bg-slate-100 rounded-lg w-3/4 mb-3"></div>
+                      <div className="h-4 bg-slate-100 rounded-lg w-1/2 mb-6"></div>
+                      <div className="mt-auto h-12 bg-slate-100 rounded-xl"></div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <CardGrid cards={cards} />
+              )}
+
+              {!loading && cards.length === 0 && (
+                <div className="py-32 text-center flex flex-col items-center">
+                  <div className="w-24 h-24 bg-slate-100 rounded-full flex items-center justify-center text-slate-300 mb-8">
+                    <Search className="w-12 h-12" />
                   </div>
-                ))}
-             </motion.div>
+                  <h3 className="text-xl font-bold text-slate-800 mb-4">찾으시는 자료가 없습니다</h3>
+                  <p className="text-slate-400 font-medium">검색어를 바꿔보거나 다른 카테고리를 선택해 보세요.</p>
+                </div>
+              )}
+            </motion.div>
           ) : (
-            <CardGrid cards={cards} />
+            <motion.div
+              key="disease-view"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.3 }}
+              className="py-10"
+            >
+              <div className="flex items-center gap-3 mb-12 justify-center">
+                 <div className="w-12 h-12 bg-emerald-600 rounded-2xl flex items-center justify-center shadow-lg shadow-emerald-200">
+                    <BookOpen className="text-white w-6 h-6" />
+                 </div>
+                 <div>
+                    <h2 className="text-3xl font-black text-slate-800 tracking-tighter">KCD-9 질병코드 검색</h2>
+                    <p className="text-emerald-600 text-[10px] font-black uppercase tracking-[0.2em]">61,005 Disease Metadata Online</p>
+                 </div>
+              </div>
+              
+              <DiseaseSearch />
+            </motion.div>
           )}
         </AnimatePresence>
-
-        {!loading && cards.length === 0 && (
-          <div className="py-32 text-center flex flex-col items-center">
-            <div className="w-24 h-24 bg-slate-100 rounded-full flex items-center justify-center text-slate-300 mb-8">
-              <Search className="w-12 h-12" />
-            </div>
-            <h3 className="text-xl font-bold text-slate-800 mb-4">찾으시는 자료가 없습니다</h3>
-            <p className="text-slate-400 font-medium">검색어를 바꿔보거나 다른 카테고리를 선택해 보세요.</p>
-          </div>
-        )}
       </section>
 
       {/* Luxury Footer Overlay */}
