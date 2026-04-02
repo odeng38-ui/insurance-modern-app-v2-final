@@ -92,11 +92,37 @@ export async function searchDiseaseCodes(query: string) {
     .limit(50);
 
   if (error) {
-    console.error('Error searching disease codes:', error);
     return [];
   }
 
   return data;
+}
+
+// --- Authentication ---
+
+// Google 로그인
+export async function signInWithGoogle() {
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: 'google',
+    options: {
+      redirectTo: window.location.origin, // 로그인 후 현재 사이트로 돌아오기
+    }
+  });
+  if (error) throw error;
+  return data;
+}
+
+// 로그아웃
+export async function signOut() {
+  const { error } = await supabase.auth.signOut();
+  if (error) throw error;
+}
+
+// 현재 유저 세션 확인
+export async function getSession() {
+  const { data: { session }, error } = await supabase.auth.getSession();
+  if (error) return null;
+  return session;
 }
 
 export async function getSuggestions(query: string) {

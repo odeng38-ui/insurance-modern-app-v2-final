@@ -1,15 +1,26 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { searchInsuranceCards, getSuggestions } from "@/lib/supabase";
+import { 
+  searchInsuranceCards, 
+  getSuggestions, 
+  signInWithGoogle, 
+  signOut,
+  supabase
+} from "@/lib/supabase";
 import { InsuranceCard } from "@/lib/types";
 import CardGrid from "@/components/CardGrid";
 import CategoryFilter from "@/components/CategoryFilter";
 import DiseaseSearch from "@/components/DiseaseSearch";
-import { Search, ShieldCheck, Sparkles, Filter, ChevronDown, BookOpen, Layers } from "lucide-react";
+import { 
+  Search, ShieldCheck, Sparkles, Filter, ChevronDown, 
+  BookOpen, Layers, LogIn, LogOut, User, Lock, Globe 
+} from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Home() {
+  const [user, setUser] = useState<any>(null);
+  const [authLoading, setAuthLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<"cards" | "disease">("cards");
   const [query, setQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("전체");
@@ -33,6 +44,24 @@ export default function Home() {
   ];
 
   useEffect(() => {
+    // 1. 초기 세션 확인
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null);
+      setAuthLoading(false);
+    });
+
+    // 2. 인증 상태 실시간 구독
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+      setAuthLoading(false);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  useEffect(() => {
+    if (!user) return; // 로그인 안 되어 있으면 중단
+
     async function fetchCards() {
       setLoading(true);
       try {
@@ -46,9 +75,11 @@ export default function Home() {
     }
     const timer = setTimeout(fetchCards, 300);
     return () => clearTimeout(timer);
-  }, [query, selectedCategory]);
+  }, [query, selectedCategory, user]);
 
   useEffect(() => {
+    if (!user) return; // 로그인 안 되어 있으면 중단
+    
     async function fetchSuggestions() {
       if (query.trim().length > 0) {
         const data = await getSuggestions(query);
@@ -61,10 +92,90 @@ export default function Home() {
     }
     const timer = setTimeout(fetchSuggestions, 200);
     return () => clearTimeout(timer);
-  }, [query]);
+  }, [query, user]);
 
+  // --- RENDERING LOGIC ---
+
+  // 로딩 중 화면
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-[#0F172A] flex items-center justify-center">
+        <motion.div 
+          animate={{ rotate: 360 }} 
+          transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+        >
+          <Sparkles className="w-10 h-10 text-blue-500" />
+        </motion.div>
+      </div>
+    );
+  }
+
+  // 로그인 전용 대기실
+  if (!user) {
+    return (
+      <main className="min-h-screen bg-[#0A0F1E] flex flex-col items-center justify-center p-6 overflow-hidden relative">
+        {/* Decorative Orbs */}
+        <div className="absolute top-0 -left-20 w-96 h-96 bg-blue-600/20 rounded-full blur-[128px] animate-pulse"></div>
+        <div className="absolute bottom-0 -right-20 w-96 h-96 bg-indigo-600/20 rounded-full blur-[128px] animate-pulse"></div>
+        
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="relative z-10 w-full max-w-lg text-center"
+        >
+          <div className="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-gradient-to-br from-blue-600 to-indigo-600 shadow-2xl mb-8">
+            <ShieldCheck className="w-10 h-10 text-white" />
+          </div>
+          <h1 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tighter">
+            보험 데이터 <span className="text-blue-400">전용 포털</span>
+          </h1>
+          <p className="text-slate-400 font-medium mb-10">승인된 전문가 전용 공간입니다. 로그인을 진행해 주세요.</p>
+
+          <div className="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] p-8 shadow-2xl">
+            <button 
+              onClick={() => signInWithGoogle()}
+              className="w-full flex items-center justify-center gap-4 bg-white hover:bg-slate-50 text-slate-900 py-5 rounded-2xl font-black text-lg transition-all shadow-xl active:scale-95 group"
+            >
+              <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" className="w-6 h-6" />
+              Google 계정으로 로그인
+            </button>
+            <p className="mt-6 text-[10px] text-slate-500 font-bold uppercase tracking-widest">Authorized Access Only</p>
+          </div>
+        </motion.div>
+      </main>
+    );
+  }
+
+  // 로그인 상태인 경우 메인 대시보드 렌더링
   return (
     <main className="min-h-screen bg-[#F8FAFC]">
+      {/* Premium Header / Sign Out Button */}
+      <nav className="fixed top-0 left-0 right-0 z-[100] bg-white/80 backdrop-blur-xl border-b border-slate-100 px-6 py-4">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-3">
+             <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-100">
+                <ShieldCheck className="text-white w-6 h-6" />
+             </div>
+             <span className="text-xl font-black text-slate-800 tracking-tighter italic">INSURE PRO</span>
+          </div>
+          
+          <div className="flex items-center gap-4">
+             <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 bg-slate-50 rounded-full border border-slate-100">
+                <div className="w-5 h-5 rounded-full bg-blue-500 overflow-hidden">
+                   {user.user_metadata?.avatar_url && <img src={user.user_metadata.avatar_url} alt="Profile" />}
+                </div>
+                <span className="text-[10px] font-black text-slate-500 truncate max-w-[100px]">{user.email}</span>
+             </div>
+             <button 
+               onClick={() => signOut()}
+               className="flex items-center gap-2 text-slate-400 hover:text-red-500 transition-colors"
+             >
+               <LogOut className="w-5 h-5" />
+               <span className="text-[10px] font-black uppercase">Exit</span>
+             </button>
+          </div>
+        </div>
+      </nav>
       {/* Premium Hero Section */}
       <section className="relative bg-[#0F172A] pt-24 pb-36 px-6 overflow-hidden">
         {/* Background Decorative Blobs */}
