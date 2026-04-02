@@ -9,15 +9,14 @@ interface CardItemProps {
 }
 
 export default function CardItem({ card }: CardItemProps) {
-  // 로컬 폴더에서 이미지 경로 생성
+  // Supabase Storage에서 썸네일 경로 생성 (상세 뷰와 동일한 방식)
   const getThumbnailUrl = () => {
     if (card.images && card.images.length > 0) {
       const filename = card.images[0];
-      // 폴더 이름은 제목과 동일하게 (공백 포함) 설정합니다.
-      const folderName = encodeURI(card.title);
-      return `/images/cards/${folderName}/${filename}`;
+      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
+      return `${supabaseUrl}/storage/v1/object/public/card-images/${card.id}/${filename}`;
     }
-    return "/placeholder-insurance.jpg"; 
+    return "/placeholder-insurance.jpg";
   };
 
   return (
