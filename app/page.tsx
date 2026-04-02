@@ -44,19 +44,33 @@ export default function Home() {
   ];
 
   useEffect(() => {
-    // 1. 초기 세션 확인
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user ?? null);
-      setAuthLoading(false);
-    });
+    let mounted = true;
 
-    // 2. 인증 상태 실시간 구독
+    async function checkUser() {
+      try {
+        const { data: { session } } = await supabase.auth.getSession();
+        if (mounted) {
+          setUser(session?.user ?? null);
+          setAuthLoading(false);
+        }
+      } catch (err) {
+        if (mounted) setAuthLoading(false);
+      }
+    }
+
+    checkUser();
+
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null);
-      setAuthLoading(false);
+      if (mounted) {
+        setUser(session?.user ?? null);
+        setAuthLoading(false);
+      }
     });
 
-    return () => subscription.unsubscribe();
+    return () => {
+      mounted = false;
+      subscription.unsubscribe();
+    };
   }, []);
 
   useEffect(() => {
