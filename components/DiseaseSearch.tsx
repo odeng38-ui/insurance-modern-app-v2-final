@@ -122,7 +122,7 @@ export default function DiseaseSearch() {
                         </div>
                       </td>
                       <td className="px-8 py-5">
-                        <span className={`px-2.5 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest ${
+                        <span className={`inline-block whitespace-nowrap px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-wider ${
                           item.level === '대' ? 'bg-red-50 text-red-600 border border-red-100' :
                           item.level === '중' ? 'bg-blue-50 text-blue-600 border border-blue-100' :
                           'bg-slate-50 text-slate-600 border border-slate-100'
