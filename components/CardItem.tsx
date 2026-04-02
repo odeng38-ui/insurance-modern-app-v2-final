@@ -13,8 +13,8 @@ export default function CardItem({ card }: CardItemProps) {
   const getThumbnailUrl = () => {
     if (card.images && card.images.length > 0) {
       const filename = card.images[0];
-      // 폴더 이름은 제목에서 공백을 +로 바꾼 형태입니다.
-      const folderName = encodeURIComponent(card.title.replace(/ /g, "+"));
+      // 폴더 이름은 제목과 동일하게 (공백 포함) 설정합니다.
+      const folderName = encodeURI(card.title);
       return `/images/cards/${folderName}/${filename}`;
     }
     return "/placeholder-insurance.jpg"; 
