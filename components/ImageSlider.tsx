@@ -15,8 +15,9 @@ export default function ImageSlider({ cardId, images, title }: ImageSliderProps)
   const [direction, setDirection] = useState(0);
 
   const getImageUrl = (filename: string) => {
-    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
-    return `${supabaseUrl}/storage/v1/object/public/card-images/${cardId}/${filename}`;
+    // 한글 제목을 URL 안전하게 인코딩하여 로컬 경로 매칭
+    const folderName = encodeURI(title);
+    return `/images/cards/${folderName}/${filename}`;
   };
 
   // Preload next image logic to ensure zero-lag transition
