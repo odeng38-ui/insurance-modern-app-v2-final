@@ -66,15 +66,16 @@ export async function getCardDetail(id: string) {
  */
 // 질병코드 검색
 export async function searchDiseaseCodes(query: string) {
-  if (!query) return [];
+  const cleanQuery = query.trim();
+  if (!cleanQuery) return [];
 
-  // if query is a single character (A, B, I...), strictly search only by code prefix
-  // to avoid matching millions of entries containing the character in Korean/English names
-  if (query.trim().length === 1 && /^[a-zA-Z]$/.test(query.trim())) {
+  // if query is short (under 3 chars), strictly search only code prefix and Korean name
+  // This prevents common alphabets (a, e, i...) in English names from polluting results
+  if (cleanQuery.length < 3) {
     const { data, error } = await supabase
       .from('disease_codes')
       .select('*')
-      .ilike('code', `${query.trim()}%`)
+      .or(`code.ilike.${cleanQuery}%,name_ko.ilike.%${cleanQuery}%`)
       .order('code', { ascending: true })
       .limit(50);
       
@@ -82,11 +83,11 @@ export async function searchDiseaseCodes(query: string) {
     return data;
   }
 
-  // normal search for more specific terms or Korean names
+  // normal full search for longer terms
   const { data, error } = await supabase
     .from('disease_codes')
     .select('*')
-    .or(`code.ilike.${query}%,name_ko.ilike.%${query}%,name_en.ilike.%${query}%`)
+    .or(`code.ilike.${cleanQuery}%,name_ko.ilike.%${cleanQuery}%,name_en.ilike.%${cleanQuery}%`)
     .order('code', { ascending: true })
     .limit(50);
 
