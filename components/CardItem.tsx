@@ -1,3 +1,5 @@
+"use client";
+
 import { InsuranceCard } from "@/lib/types";
 import { BookOpen, MapPin, ChevronRight, Tag, Bookmark } from "lucide-react";
 import Link from "next/link";
@@ -9,15 +11,35 @@ interface CardItemProps {
 }
 
 export default function CardItem({ card }: CardItemProps) {
-  // 로컬 public 디렉토리에서 썸네일 경로 생성
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
+
+  // Supabase Storage URL (primary)
   const getThumbnailUrl = () => {
     if (card.images && card.images.length > 0) {
       const filename = card.images[0];
-      // 한글 제목을 URL 안전하게 인코딩하여 매칭
-      const folderName = encodeURI(card.title);
+      return `${supabaseUrl}/storage/v1/object/public/card-images/${card.id}/${filename}`;
+    }
+    return "/placeholder-insurance.jpg";
+  };
+
+  // 로컬 public 폴더 경로 (Supabase 실패 시 fallback)
+  const getLocalThumbnailUrl = () => {
+    if (card.images && card.images.length > 0) {
+      const filename = card.images[0];
+      const folderName = encodeURIComponent(card.title);
       return `/images/cards/${folderName}/${filename}`;
     }
     return "/placeholder-insurance.jpg";
+  };
+
+  const handleImgError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    const img = e.currentTarget;
+    if (!img.dataset.fallback) {
+      img.dataset.fallback = "local";
+      img.src = getLocalThumbnailUrl();
+    } else {
+      img.src = "/placeholder-insurance.jpg";
+    }
   };
 
   return (
@@ -32,9 +54,10 @@ export default function CardItem({ card }: CardItemProps) {
           <div className="relative h-56 overflow-hidden">
             {/* Background Image with Overlay */}
             <div className="absolute inset-0 z-0">
-               <img 
-                  src={getThumbnailUrl()} 
-                  alt={card.title} 
+               <img
+                  src={getThumbnailUrl()}
+                  alt={card.title}
+                  onError={handleImgError}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                />
                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-60"></div>
