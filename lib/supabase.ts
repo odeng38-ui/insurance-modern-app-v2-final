@@ -68,10 +68,12 @@ export async function getCardDetail(id: string) {
 export async function searchDiseaseCodes(query: string) {
   if (!query) return [];
 
+  // Try to match code exactly or starting with query first
   const { data, error } = await supabase
     .from('disease_codes')
     .select('*')
-    .or(`code.ilike.%${query}%,name_ko.ilike.%${query}%,name_en.ilike.%${query}%`)
+    .or(`code.ilike.${query}%,name_ko.ilike.%${query}%,name_en.ilike.%${query}%`)
+    .order('code', { ascending: true })
     .limit(50);
 
   if (error) {

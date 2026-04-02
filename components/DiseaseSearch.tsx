@@ -72,11 +72,14 @@ export default function DiseaseSearch() {
             <div className="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center text-blue-400 mb-6">
                <Hash className="w-10 h-10" />
             </div>
-            <h3 className="text-xl font-black text-slate-800 mb-2">질병코드 백과사전</h3>
-            <p className="text-slate-400 font-medium max-w-sm">대한민국 표준질병사인분류(KCD-9) 기준 6만 건 이상의 데이터를 즉시 검색할 수 있습니다.</p>
+            <h3 className="text-xl font-black text-slate-800 mb-2">제9차 한국표준질병ㆍ사인분류 (KCD-9)</h3>
+            <p className="text-slate-400 font-medium max-w-sm">대한민국 질병분류 마스터 DB 61,005건을 즉시 검색할 수 있습니다.</p>
           </div>
         ) : (
           <div className="overflow-x-auto">
+            <div className="px-8 py-4 bg-slate-50/30 border-b border-slate-50">
+               <p className="text-[10px] font-black text-emerald-600 uppercase tracking-widest">Statistical Classification of Diseases (KCD-9)</p>
+            </div>
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="bg-slate-50/50">
