@@ -9,12 +9,13 @@ interface CardItemProps {
 }
 
 export default function CardItem({ card }: CardItemProps) {
-  // Supabase public URL generator
+  // 로컬 폴더에서 이미지 경로 생성
   const getThumbnailUrl = () => {
     if (card.images && card.images.length > 0) {
       const filename = card.images[0];
-      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
-      return `${supabaseUrl}/storage/v1/object/public/card-images/${card.id}/${filename}`;
+      // 폴더 이름은 제목에서 공백을 +로 바꾼 형태입니다.
+      const folderName = encodeURIComponent(card.title.replace(/ /g, "+"));
+      return `/images/cards/${folderName}/${filename}`;
     }
     return "/placeholder-insurance.jpg"; 
   };
