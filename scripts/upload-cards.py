@@ -11,13 +11,17 @@ SERVICE_ROLE_KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
 
 DATA_DIR = "_json_data"
 
+def clean_text(text):
+    if not text: return ""
+    return text.replace('&#039;', '').replace('&amp;', ' ').replace('+', ' ').strip()
+
 def upload_cards():
     if not SUPABASE_URL or not SERVICE_ROLE_KEY:
         print("Error: Missing Supabase Environment Variables!")
         return
 
     json_files = [f for f in os.listdir(DATA_DIR) if f.endswith(".json")]
-    print(f"Detected {len(json_files)} JSON files in {DATA_DIR}...")
+    print(f"Detected {len(json_files)} JSON files. Starting clean ingestion...")
 
     headers = {
         "apikey": SERVICE_ROLE_KEY,
@@ -33,24 +37,22 @@ def upload_cards():
             with open(os.path.join(DATA_DIR, filename), "r", encoding="utf-8") as f:
                 data = json.load(f)
                 
-                # Generate a repeatable UUID-like string from title for 'id'
-                # Supabase UUID column expects UUID, but let's use the title as ID if handled correctly
-                # better yet, let's just let it generate UUID but avoid dupes by title? 
-                # actually 'id' is PRIMARY KEY and it is UUID. 
-                # I'll generate a UUID string from title MD5
-                title = data.get("title", "Untitled")
-                record_id = hashlib.md5(title.encode('utf-8')).hexdigest()
-                # format hex to uuid: 8-4-4-4-12
+                # CLEAN the data before anything else
+                raw_title = data.get("title", "Untitled")
+                clean_title = clean_text(raw_title)
+                
+                # Generate stable ID from clean title
+                record_id = hashlib.md5(clean_title.encode('utf-8')).hexdigest()
                 uuid_str = f"{record_id[:8]}-{record_id[8:12]}-{record_id[12:16]}-{record_id[16:20]}-{record_id[20:]}"
 
                 record = {
                     "id": uuid_str,
-                    "title": title,
+                    "title": clean_title,
                     "category": data.get("category", "전체"),
-                    "tags": data.get("tags", []),
-                    "summary": data.get("summary", ""),
+                    "tags": [clean_text(t) for t in data.get("tags", [])],
+                    "summary": clean_text(data.get("summary", "")),
                     "content": data.get("content", ""),
-                    "key_points": data.get("key_points", []),
+                    "key_points": [clean_text(k) for k in data.get("key_points", [])],
                     "image_count": data.get("image_count", 0),
                     "images": data.get("images", [])
                 }
@@ -62,13 +64,13 @@ def upload_cards():
         print("No valid records found.")
         return
 
-    print(f"Uploading {len(records)} records to insurance_cards table...")
+    print(f"Uploading {len(records)} SANITIZED records to insurance_cards...")
     
     # Bulk upload
     res = requests.post(f"{SUPABASE_URL}/rest/v1/insurance_cards", headers=headers, json=records)
     
     if res.status_code in [200, 201, 204]:
-        print(f"Success! {len(records)} knowledge items have been synced to the database.")
+        print(f"Success! {len(records)} clean records are now live in the database.")
     else:
         print(f"Upload failed: {res.status_code} - {res.text}")
 
