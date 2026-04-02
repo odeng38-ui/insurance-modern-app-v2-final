@@ -68,7 +68,21 @@ export async function getCardDetail(id: string) {
 export async function searchDiseaseCodes(query: string) {
   if (!query) return [];
 
-  // Try to match code exactly or starting with query first
+  // if query is a single character (A, B, I...), strictly search only by code prefix
+  // to avoid matching millions of entries containing the character in Korean/English names
+  if (query.trim().length === 1 && /^[a-zA-Z]$/.test(query.trim())) {
+    const { data, error } = await supabase
+      .from('disease_codes')
+      .select('*')
+      .ilike('code', `${query.trim()}%`)
+      .order('code', { ascending: true })
+      .limit(50);
+      
+    if (error) return [];
+    return data;
+  }
+
+  // normal search for more specific terms or Korean names
   const { data, error } = await supabase
     .from('disease_codes')
     .select('*')
