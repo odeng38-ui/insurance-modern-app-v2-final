@@ -19,7 +19,6 @@ export default function ImageSlider({ cardId, images, title }: ImageSliderProps)
     const sanitizedFolder = title
       .replace(/&amp;/g, " ")
       .replace(/&#039;/g, "")
-      .replace(/\+/g, " ")
       .trim();
     const folderName = encodeURIComponent(sanitizedFolder);
     return `/images/cards/${folderName}/${filename}`;

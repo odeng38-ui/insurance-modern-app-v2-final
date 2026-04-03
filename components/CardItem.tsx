@@ -21,7 +21,6 @@ export default function CardItem({ card }: CardItemProps) {
       const sanitizedFolder = card.title
         .replace(/&amp;/g, " ")
         .replace(/&#039;/g, "")
-        .replace(/\+/g, " ")
         .trim();
       
       const folderName = encodeURIComponent(sanitizedFolder);
