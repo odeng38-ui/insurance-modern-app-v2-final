@@ -18,15 +18,12 @@ export default function CardItem({ card }: CardItemProps) {
     if (card.images && card.images.length > 0) {
       const filename = card.images[0].toLowerCase();
       // 폴더명과 일치시키기 위해 데이터의 제목에서 특수문자 정화
-      // 윈도우 폴더의 특수 규칙(+ 기호)에 따라 공백을 +로 변환
       const sanitizedFolder = card.title
         .replace(/&amp;/g, " ")
         .replace(/&#039;/g, "")
-        .replace(/ /g, "+")
         .trim();
       
-      // %2B 대신 실제 + 기호를 사용하기 위해 수동 인코딩 조정
-      const folderName = encodeURIComponent(sanitizedFolder).replace(/%2B/g, "+");
+      const folderName = encodeURIComponent(sanitizedFolder);
       return `/images/cards/${folderName}/${filename}`;
     }
     return "/placeholder-insurance.jpg";
