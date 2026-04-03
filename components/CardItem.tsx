@@ -13,20 +13,18 @@ interface CardItemProps {
 export default function CardItem({ card }: CardItemProps) {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
 
-  // Supabase Storage URL (primary)
+  // 100% 로컬 public 폴더 경로 기반 썸네일 (최우선)
   const getThumbnailUrl = () => {
     if (card.images && card.images.length > 0) {
       const filename = card.images[0];
-      return `${supabaseUrl}/storage/v1/object/public/card-images/${card.id}/${filename}`;
-    }
-    return "/placeholder-insurance.jpg";
-  };
-
-  // 로컬 public 폴더 경로 (Supabase 실패 시 fallback)
-  const getLocalThumbnailUrl = () => {
-    if (card.images && card.images.length > 0) {
-      const filename = card.images[0];
-      const folderName = encodeURIComponent(card.title);
+      // 폴더명과 일치시키기 위해 데이터의 제목에서 특수문자 정화
+      const sanitizedFolder = card.title
+        .replace(/&amp;/g, " ")
+        .replace(/&#039;/g, "")
+        .replace(/\+/g, " ")
+        .trim();
+      
+      const folderName = encodeURIComponent(sanitizedFolder);
       return `/images/cards/${folderName}/${filename}`;
     }
     return "/placeholder-insurance.jpg";
@@ -34,12 +32,7 @@ export default function CardItem({ card }: CardItemProps) {
 
   const handleImgError = (e: React.SyntheticEvent<HTMLImageElement>) => {
     const img = e.currentTarget;
-    if (!img.dataset.fallback) {
-      img.dataset.fallback = "local";
-      img.src = getLocalThumbnailUrl();
-    } else {
-      img.src = "/placeholder-insurance.jpg";
-    }
+    img.src = "/placeholder-insurance.jpg"; 
   };
 
   return (

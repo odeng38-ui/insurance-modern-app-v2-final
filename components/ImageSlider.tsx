@@ -15,8 +15,13 @@ export default function ImageSlider({ cardId, images, title }: ImageSliderProps)
   const [direction, setDirection] = useState(0);
 
   const getImageUrl = (filename: string) => {
-    // 한글 제목을 URL 안전하게 인코딩하여 로컬 경로 매칭
-    const folderName = encodeURI(title);
+    // 100% 로컬 public 폴더 경로 기반 (정화된 제목 기준)
+    const sanitizedFolder = title
+      .replace(/&amp;/g, " ")
+      .replace(/&#039;/g, "")
+      .replace(/\+/g, " ")
+      .trim();
+    const folderName = encodeURIComponent(sanitizedFolder);
     return `/images/cards/${folderName}/${filename}`;
   };
 
