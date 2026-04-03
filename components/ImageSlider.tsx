@@ -15,13 +15,13 @@ export default function ImageSlider({ cardId, images, title }: ImageSliderProps)
   const [direction, setDirection] = useState(0);
 
   const getImageUrl = (filename: string) => {
-    // 100% 로컬 public 폴더 경로 기반 (정화된 제목 기준)
+    // 100% 로컬 public 폴더 경로 기반 (정화된 제목 기준 + 소문자 파일명 보장)
     const sanitizedFolder = title
       .replace(/&amp;/g, " ")
       .replace(/&#039;/g, "")
       .trim();
     const folderName = encodeURIComponent(sanitizedFolder);
-    return `/images/cards/${folderName}/${filename}`;
+    return `/images/cards/${folderName}/${filename.toLowerCase()}`;
   };
 
   // Preload next image logic to ensure zero-lag transition

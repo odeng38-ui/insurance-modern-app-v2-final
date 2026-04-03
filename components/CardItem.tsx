@@ -16,7 +16,7 @@ export default function CardItem({ card }: CardItemProps) {
   // 100% 로컬 public 폴더 경로 기반 썸네일 (최우선)
   const getThumbnailUrl = () => {
     if (card.images && card.images.length > 0) {
-      const filename = card.images[0];
+      const filename = card.images[0].toLowerCase();
       // 폴더명과 일치시키기 위해 데이터의 제목에서 특수문자 정화
       const sanitizedFolder = card.title
         .replace(/&amp;/g, " ")
