@@ -1,0 +1,24 @@
+{
+  "folder_name": "어린이+유병자+보험",
+  "title": "어린이 유병자 보험",
+  "category": "어린이보험",
+  "tags": [
+    "어린이보험"
+  ],
+  "summary": "어린이 유병자 보험에 대한 보험 카드뉴스입니다. 6개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "어린이 유병자 보험 관련 주요 정보 1",
+    "어린이 유병자 보험 관련 주요 정보 2",
+    "어린이 유병자 보험 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_6453606d8f3df.jpg",
+    "knowledge_6453606db6f62.jpg",
+    "knowledge_6453606dddae1.jpg",
+    "knowledge_6453606e15cc9.jpg",
+    "knowledge_6453606e43fb1.jpg",
+    "knowledge_6453606e6f377.jpg"
+  ],
+  "image_count": 6
+}

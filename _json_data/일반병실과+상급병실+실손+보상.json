@@ -1,0 +1,24 @@
+{
+  "folder_name": "일반병실과+상급병실+실손+보상",
+  "title": "일반병실과 상급병실 실손 보상",
+  "category": "실손보험",
+  "tags": [
+    "실손"
+  ],
+  "summary": "일반병실과 상급병실 실손 보상에 대한 보험 카드뉴스입니다. 6개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "일반병실과 상급병실 실손 보상 관련 주요 정보 1",
+    "일반병실과 상급병실 실손 보상 관련 주요 정보 2",
+    "일반병실과 상급병실 실손 보상 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_6463473aef2bd.jpg",
+    "knowledge_6463473b22fbd.jpg",
+    "knowledge_6463473b4a525.jpg",
+    "knowledge_6463473b73b40.jpg",
+    "knowledge_6463473ba03ed.jpg",
+    "knowledge_6463473bc5b30.jpg"
+  ],
+  "image_count": 6
+}

@@ -1,0 +1,24 @@
+{
+  "folder_name": "간병비용페이백",
+  "title": "간병비용페이백",
+  "category": "간병보험",
+  "tags": [
+    "간병"
+  ],
+  "summary": "간병비용페이백에 대한 보험 카드뉴스입니다. 6개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "간병비용페이백 관련 주요 정보 1",
+    "간병비용페이백 관련 주요 정보 2",
+    "간병비용페이백 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_66ad59ab7a2d3.jpg",
+    "knowledge_66ad59abb4bf9.jpg",
+    "knowledge_66ad59abe6d69.jpg",
+    "knowledge_66ad59ac2b9fa.jpg",
+    "knowledge_66ad59ac6516c.jpg",
+    "knowledge_66ad59aca3a6a.jpg"
+  ],
+  "image_count": 6
+}

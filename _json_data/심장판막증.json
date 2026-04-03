@@ -1,0 +1,25 @@
+{
+  "folder_name": "심장판막증",
+  "title": "심장판막증",
+  "category": "심장보험",
+  "tags": [
+    "심장"
+  ],
+  "summary": "심장판막증에 대한 보험 카드뉴스입니다. 7개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "심장판막증 관련 주요 정보 1",
+    "심장판막증 관련 주요 정보 2",
+    "심장판막증 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_6389a95eb6475.jpg",
+    "knowledge_6389a95edfedc.jpg",
+    "knowledge_6389a95f1d3a2.jpg",
+    "knowledge_6389a95f4eb7a.jpg",
+    "knowledge_6389a95f79975.jpg",
+    "knowledge_6389a95fa239a.jpg",
+    "knowledge_6389a95fed6d4.jpg"
+  ],
+  "image_count": 7
+}

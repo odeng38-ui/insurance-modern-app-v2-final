@@ -1,0 +1,24 @@
+{
+  "folder_name": "세침흡인검사",
+  "title": "세침흡인검사",
+  "category": "보험 일반",
+  "tags": [
+    "보험 일반"
+  ],
+  "summary": "세침흡인검사에 대한 보험 카드뉴스입니다. 6개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "세침흡인검사 관련 주요 정보 1",
+    "세침흡인검사 관련 주요 정보 2",
+    "세침흡인검사 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_637c4e1650da3.jpg",
+    "knowledge_637c4e167da96.jpg",
+    "knowledge_637c4e16ab26c.jpg",
+    "knowledge_637c4e16d11ee.jpg",
+    "knowledge_637c4e170e7ef.jpg",
+    "knowledge_637c4e1738969.jpg"
+  ],
+  "image_count": 6
+}

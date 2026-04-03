@@ -1,0 +1,28 @@
+{
+  "folder_name": "암 병기 분류(TNM분류)",
+  "title": "암 병기 분류",
+  "category": "암보험",
+  "tags": [
+    "병기",
+    "TNM분류",
+    "진단"
+  ],
+  "summary": "암의 병기를 분류하는 TNM분류 체계를 설명합니다.",
+  "content": "TNM분류를 통한 암의 병기 판정 및 보장 기준",
+  "key_points": [
+    "TNM분류",
+    "병기판정",
+    "보장기준"
+  ],
+  "images": [
+    "knowledge_6389ae52e7df4.jpg",
+    "knowledge_6389ae5322018.jpg",
+    "knowledge_6389ae534a77a.jpg",
+    "knowledge_6389ae5373d6e.jpg",
+    "knowledge_6389ae539a43a.jpg",
+    "knowledge_6389ae53d4f70.jpg",
+    "knowledge_6389ae541d4da.jpg",
+    "knowledge_6389ae544996e.jpg"
+  ],
+  "image_count": 8
+}

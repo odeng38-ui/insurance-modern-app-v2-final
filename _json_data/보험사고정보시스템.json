@@ -1,0 +1,24 @@
+{
+  "folder_name": "보험사고정보시스템",
+  "title": "보험사고정보시스템",
+  "category": "보험 일반",
+  "tags": [
+    "보험 일반"
+  ],
+  "summary": "보험사고정보시스템에 대한 보험 카드뉴스입니다. 6개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "보험사고정보시스템 관련 주요 정보 1",
+    "보험사고정보시스템 관련 주요 정보 2",
+    "보험사고정보시스템 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_65c4363649592.jpg",
+    "knowledge_65c4363672556.jpg",
+    "knowledge_65c436369a73a.jpg",
+    "knowledge_65c43636c09f9.jpg",
+    "knowledge_65c43636e9d09.jpg",
+    "knowledge_65c4363732407.jpg"
+  ],
+  "image_count": 6
+}

@@ -1,0 +1,24 @@
+{
+  "folder_name": "가전제품+고장+수리비용",
+  "title": "가전제품 고장 수리비용",
+  "category": "보험 일반",
+  "tags": [
+    "보험 일반"
+  ],
+  "summary": "가전제품 고장 수리비용에 대한 보험 카드뉴스입니다. 6개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "가전제품 고장 수리비용 관련 주요 정보 1",
+    "가전제품 고장 수리비용 관련 주요 정보 2",
+    "가전제품 고장 수리비용 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_637c70a6b705d.jpg",
+    "knowledge_637c70a6e5488.jpg",
+    "knowledge_637c70a722208.jpg",
+    "knowledge_637c70a751f22.jpg",
+    "knowledge_637c70a77b549.jpg",
+    "knowledge_637c70a7aea89.jpg"
+  ],
+  "image_count": 6
+}

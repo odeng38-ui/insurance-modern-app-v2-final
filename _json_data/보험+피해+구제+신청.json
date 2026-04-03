@@ -1,0 +1,25 @@
+{
+  "folder_name": "보험+피해+구제+신청",
+  "title": "보험 피해 구제 신청",
+  "category": "보험 일반",
+  "tags": [
+    "보험 일반"
+  ],
+  "summary": "보험 피해 구제 신청에 대한 보험 카드뉴스입니다. 7개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "보험 피해 구제 신청 관련 주요 정보 1",
+    "보험 피해 구제 신청 관련 주요 정보 2",
+    "보험 피해 구제 신청 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_653b47f8decbe.jpg",
+    "knowledge_653b47f91357c.jpg",
+    "knowledge_653b47f93def7.jpg",
+    "knowledge_653b47f9684c0.jpg",
+    "knowledge_653b47f99192c.jpg",
+    "knowledge_653b47f9baedb.jpg",
+    "knowledge_653b47f9e1365.jpg"
+  ],
+  "image_count": 7
+}

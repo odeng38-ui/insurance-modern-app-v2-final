@@ -1,0 +1,23 @@
+{
+  "folder_name": "통합암진단비",
+  "title": "통합암진단비",
+  "category": "암보험",
+  "tags": [
+    "암보험"
+  ],
+  "summary": "통합암진단비에 대한 보험 카드뉴스입니다. 5개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "통합암진단비 관련 주요 정보 1",
+    "통합암진단비 관련 주요 정보 2",
+    "통합암진단비 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_68ecbd26b3130.png",
+    "knowledge_68ecbd26f121e.png",
+    "knowledge_68ecbd273a8a8.png",
+    "knowledge_68ecbd2765264.png",
+    "knowledge_68ecbd27a3f9e.png"
+  ],
+  "image_count": 5
+}

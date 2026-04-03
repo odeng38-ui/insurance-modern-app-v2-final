@@ -1,0 +1,23 @@
+{
+  "folder_name": "환급형+암보험",
+  "title": "환급형 암보험",
+  "category": "암보험",
+  "tags": [
+    "암보험"
+  ],
+  "summary": "환급형 암보험에 대한 보험 카드뉴스입니다. 5개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "환급형 암보험 관련 주요 정보 1",
+    "환급형 암보험 관련 주요 정보 2",
+    "환급형 암보험 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_670752bea7ae8.jpg",
+    "knowledge_670752bed0080.jpg",
+    "knowledge_670752bf06515.jpg",
+    "knowledge_670752bf2e591.jpg",
+    "knowledge_670752bf57872.jpg"
+  ],
+  "image_count": 5
+}

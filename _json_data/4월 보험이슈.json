@@ -1,0 +1,24 @@
+{
+  "folder_name": "4월 보험이슈",
+  "title": "4월 보험이슈",
+  "category": "계절별 보상",
+  "tags": [
+    "계절별 보상"
+  ],
+  "summary": "4월 보험이슈에 대한 보험 카드뉴스입니다. 6개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "4월 보험이슈 관련 주요 정보 1",
+    "4월 보험이슈 관련 주요 정보 2",
+    "4월 보험이슈 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_69c4f53cd2beb.png",
+    "knowledge_69c4f53d07a03.png",
+    "knowledge_69c4f53d3ab46.png",
+    "knowledge_69c4f53d6b8c5.png",
+    "knowledge_69c4f53d9b418.png",
+    "knowledge_69c4f53db8c61.png"
+  ],
+  "image_count": 6
+}

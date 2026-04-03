@@ -1,0 +1,25 @@
+{
+  "folder_name": "시기별여성대표질환",
+  "title": "시기별여성대표질환",
+  "category": "보험 일반",
+  "tags": [
+    "보험 일반"
+  ],
+  "summary": "시기별여성대표질환에 대한 보험 카드뉴스입니다. 7개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "시기별여성대표질환 관련 주요 정보 1",
+    "시기별여성대표질환 관련 주요 정보 2",
+    "시기별여성대표질환 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_66b51dae12e7c.jpg",
+    "knowledge_66b51dae43d9f.jpg",
+    "knowledge_66b51dae8611e.jpg",
+    "knowledge_66b51daeba9d0.jpg",
+    "knowledge_66b51daeef5b1.jpg",
+    "knowledge_66b51daf31de6.jpg",
+    "knowledge_66b51daf65d0f.jpg"
+  ],
+  "image_count": 7
+}

@@ -1,0 +1,24 @@
+{
+  "folder_name": "2대주요치료비",
+  "title": "2대주요치료비",
+  "category": "보험 일반",
+  "tags": [
+    "보험 일반"
+  ],
+  "summary": "2대주요치료비에 대한 보험 카드뉴스입니다. 6개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "2대주요치료비 관련 주요 정보 1",
+    "2대주요치료비 관련 주요 정보 2",
+    "2대주요치료비 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_6893f1d90e64f.jpg",
+    "knowledge_6893f1d925ef4.jpg",
+    "knowledge_6893f1d9468ca.jpg",
+    "knowledge_6893f1d960499.jpg",
+    "knowledge_6893f1d97b513.jpg",
+    "knowledge_6893f1d994166.jpg"
+  ],
+  "image_count": 6
+}

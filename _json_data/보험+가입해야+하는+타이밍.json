@@ -1,0 +1,23 @@
+{
+  "folder_name": "보험+가입해야+하는+타이밍",
+  "title": "보험 가입해야 하는 타이밍",
+  "category": "보험 일반",
+  "tags": [
+    "보험 일반"
+  ],
+  "summary": "보험 가입해야 하는 타이밍에 대한 보험 카드뉴스입니다. 5개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "보험 가입해야 하는 타이밍 관련 주요 정보 1",
+    "보험 가입해야 하는 타이밍 관련 주요 정보 2",
+    "보험 가입해야 하는 타이밍 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_686cdda9ab065.jpg",
+    "knowledge_686cdda9c21bc.jpg",
+    "knowledge_686cdda9d8d88.jpg",
+    "knowledge_686cdda9eedf9.jpg",
+    "knowledge_686cddaa12e52.jpg"
+  ],
+  "image_count": 5
+}

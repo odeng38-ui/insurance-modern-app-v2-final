@@ -1,0 +1,24 @@
+{
+  "folder_name": "의료자문요청에+동의해야+하나요",
+  "title": "의료자문요청에 동의해야 하나요",
+  "category": "보험 일반",
+  "tags": [
+    "보험 일반"
+  ],
+  "summary": "의료자문요청에 동의해야 하나요에 대한 보험 카드뉴스입니다. 6개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "의료자문요청에 동의해야 하나요 관련 주요 정보 1",
+    "의료자문요청에 동의해야 하나요 관련 주요 정보 2",
+    "의료자문요청에 동의해야 하나요 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_655ee8db0bda4.jpg",
+    "knowledge_655ee8db33da1.jpg",
+    "knowledge_655ee8db5f0a4.jpg",
+    "knowledge_655ee8db85f53.jpg",
+    "knowledge_655ee8dbb4319.jpg",
+    "knowledge_655ee8dbdb65b.jpg"
+  ],
+  "image_count": 6
+}

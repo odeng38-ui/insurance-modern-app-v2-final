@@ -1,0 +1,24 @@
+{
+  "folder_name": "당뇨병진단비",
+  "title": "당뇨병진단비",
+  "category": "만성질환보험",
+  "tags": [
+    "당뇨"
+  ],
+  "summary": "당뇨병진단비에 대한 보험 카드뉴스입니다. 6개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "당뇨병진단비 관련 주요 정보 1",
+    "당뇨병진단비 관련 주요 정보 2",
+    "당뇨병진단비 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_66d049d2c6071.jpg",
+    "knowledge_66d049d3116ef.jpg",
+    "knowledge_66d049d3456a4.jpg",
+    "knowledge_66d049d37722d.jpg",
+    "knowledge_66d049d3a9560.jpg",
+    "knowledge_66d049d3db776.jpg"
+  ],
+  "image_count": 6
+}

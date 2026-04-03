@@ -1,0 +1,25 @@
+{
+  "folder_name": "백내장진단비",
+  "title": "백내장진단비",
+  "category": "보험 일반",
+  "tags": [
+    "보험 일반"
+  ],
+  "summary": "백내장진단비에 대한 보험 카드뉴스입니다. 7개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "백내장진단비 관련 주요 정보 1",
+    "백내장진단비 관련 주요 정보 2",
+    "백내장진단비 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_66b2b948985b5.jpg",
+    "knowledge_66b2b948cb31e.jpg",
+    "knowledge_66b2b9490d689.jpg",
+    "knowledge_66b2b9493ee95.jpg",
+    "knowledge_66b2b94970c9b.jpg",
+    "knowledge_66b2b949a9c9e.jpg",
+    "knowledge_66b2b949e2394.jpg"
+  ],
+  "image_count": 7
+}

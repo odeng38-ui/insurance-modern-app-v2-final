@@ -1,0 +1,25 @@
+{
+  "folder_name": "풍수해보험",
+  "title": "풍수해보험",
+  "category": "화재보험",
+  "tags": [
+    "화재보험"
+  ],
+  "summary": "풍수해보험에 대한 보험 카드뉴스입니다. 7개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "풍수해보험 관련 주요 정보 1",
+    "풍수해보험 관련 주요 정보 2",
+    "풍수해보험 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_637c70b4274a1.jpg",
+    "knowledge_637c70b4524b2.jpg",
+    "knowledge_637c70b47d73a.jpg",
+    "knowledge_637c70b4b34f4.jpg",
+    "knowledge_637c70b4ed02c.jpg",
+    "knowledge_637c70b52c7ec.jpg",
+    "knowledge_637c70b55ed00.jpg"
+  ],
+  "image_count": 7
+}

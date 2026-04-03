@@ -1,0 +1,24 @@
+{
+  "folder_name": "예정이율상승과+보험료하락",
+  "title": "예정이율상승과 보험료하락",
+  "category": "보험료/이율",
+  "tags": [
+    "보험료/이율"
+  ],
+  "summary": "예정이율상승과 보험료하락에 대한 보험 카드뉴스입니다. 6개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "예정이율상승과 보험료하락 관련 주요 정보 1",
+    "예정이율상승과 보험료하락 관련 주요 정보 2",
+    "예정이율상승과 보험료하락 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_63c65ec554cdf.jpg",
+    "knowledge_63c65ec58761e.jpg",
+    "knowledge_63c65ec5b20d0.jpg",
+    "knowledge_63c65ec5e10c9.jpg",
+    "knowledge_63c65ec61a7b1.jpg",
+    "knowledge_63c65ec64b901.jpg"
+  ],
+  "image_count": 6
+}

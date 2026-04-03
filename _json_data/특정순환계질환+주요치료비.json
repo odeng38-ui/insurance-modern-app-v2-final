@@ -1,0 +1,23 @@
+{
+  "folder_name": "특정순환계질환+주요치료비",
+  "title": "특정순환계질환 주요치료비",
+  "category": "보험 일반",
+  "tags": [
+    "보험 일반"
+  ],
+  "summary": "특정순환계질환 주요치료비에 대한 보험 카드뉴스입니다. 5개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "특정순환계질환 주요치료비 관련 주요 정보 1",
+    "특정순환계질환 주요치료비 관련 주요 정보 2",
+    "특정순환계질환 주요치료비 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_67f5fa48b6905.jpg",
+    "knowledge_67f5fa48de412.jpg",
+    "knowledge_67f5fa490fd80.jpg",
+    "knowledge_67f5fa49376e8.jpg",
+    "knowledge_67f5fa495ad69.jpg"
+  ],
+  "image_count": 5
+}

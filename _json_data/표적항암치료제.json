@@ -1,0 +1,27 @@
+{
+  "folder_name": "표적항암치료제",
+  "title": "표적항암치료제",
+  "category": "암보험",
+  "tags": [
+    "암보험",
+    "표적치료",
+    "항암치료"
+  ],
+  "summary": "표적항암치료제에 대한 보험 카드뉴스입니다. 7개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "표적항암치료제 관련 주요 정보 1",
+    "표적항암치료제 관련 주요 정보 2",
+    "표적항암치료제 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_66ff16345db28.jpg",
+    "knowledge_66ff16348b0e7.jpg",
+    "knowledge_66ff1634b56eb.jpg",
+    "knowledge_66ff1634e0677.jpg",
+    "knowledge_66ff1635184c1.jpg",
+    "knowledge_66ff163547b7e.jpg",
+    "knowledge_66ff16357887a.jpg"
+  ],
+  "image_count": 7
+}

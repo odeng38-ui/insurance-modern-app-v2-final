@@ -1,0 +1,23 @@
+{
+  "folder_name": "자동차부상치료비+보험금청구",
+  "title": "자동차부상치료비 보험금청구",
+  "category": "운전자보험",
+  "tags": [
+    "보험금청구"
+  ],
+  "summary": "자동차부상치료비 보험금청구에 대한 보험 카드뉴스입니다. 5개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "자동차부상치료비 보험금청구 관련 주요 정보 1",
+    "자동차부상치료비 보험금청구 관련 주요 정보 2",
+    "자동차부상치료비 보험금청구 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_660e7d157c361.jpg",
+    "knowledge_660e7d15a43a2.jpg",
+    "knowledge_660e7d15ce6ea.jpg",
+    "knowledge_660e7d1603f7f.jpg",
+    "knowledge_660e7d162ba57.jpg"
+  ],
+  "image_count": 5
+}

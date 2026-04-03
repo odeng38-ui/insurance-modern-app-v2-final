@@ -1,0 +1,23 @@
+{
+  "folder_name": "지금은+암+치료+시대",
+  "title": "지금은 암 치료 시대",
+  "category": "암보험",
+  "tags": [
+    "암보험"
+  ],
+  "summary": "지금은 암 치료 시대에 대한 보험 카드뉴스입니다. 5개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "지금은 암 치료 시대 관련 주요 정보 1",
+    "지금은 암 치료 시대 관련 주요 정보 2",
+    "지금은 암 치료 시대 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_636b155aad64b.jpg",
+    "knowledge_636b155aed537.jpg",
+    "knowledge_636b155b51806.jpg",
+    "knowledge_636b155bd4ef3.jpg",
+    "knowledge_636b155c1be37.jpg"
+  ],
+  "image_count": 5
+}

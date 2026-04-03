@@ -1,0 +1,23 @@
+{
+  "folder_name": "통합상해치료비",
+  "title": "통합상해치료비",
+  "category": "상해보험",
+  "tags": [
+    "상해"
+  ],
+  "summary": "통합상해치료비에 대한 보험 카드뉴스입니다. 5개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "통합상해치료비 관련 주요 정보 1",
+    "통합상해치료비 관련 주요 정보 2",
+    "통합상해치료비 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_66c2bdf86d095.jpg",
+    "knowledge_66c2bdf896004.jpg",
+    "knowledge_66c2bdf8c1387.jpg",
+    "knowledge_66c2bdf8e7629.jpg",
+    "knowledge_66c2bdf91d701.jpg"
+  ],
+  "image_count": 5
+}

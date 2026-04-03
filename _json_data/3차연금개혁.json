@@ -1,0 +1,23 @@
+{
+  "folder_name": "3차연금개혁",
+  "title": "3차연금개혁",
+  "category": "연금보험",
+  "tags": [
+    "연금"
+  ],
+  "summary": "3차연금개혁에 대한 보험 카드뉴스입니다. 5개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "3차연금개혁 관련 주요 정보 1",
+    "3차연금개혁 관련 주요 정보 2",
+    "3차연금개혁 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_67dc938cf0631.jpg",
+    "knowledge_67dc938d6cd83.jpg",
+    "knowledge_67dc938d8eedc.jpg",
+    "knowledge_67dc938db4a58.jpg",
+    "knowledge_67dc938dda356.jpg"
+  ],
+  "image_count": 5
+}

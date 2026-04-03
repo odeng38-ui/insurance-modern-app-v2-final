@@ -1,0 +1,24 @@
+{
+  "folder_name": "심혈관수술",
+  "title": "심혈관수술",
+  "category": "수술보험",
+  "tags": [
+    "수술"
+  ],
+  "summary": "심혈관수술에 대한 보험 카드뉴스입니다. 6개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "심혈관수술 관련 주요 정보 1",
+    "심혈관수술 관련 주요 정보 2",
+    "심혈관수술 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_676d15aaad124.jpg",
+    "knowledge_676d15aad567b.jpg",
+    "knowledge_676d15ab0be5b.jpg",
+    "knowledge_676d15ab31caf.jpg",
+    "knowledge_676d15ab5ba8f.jpg",
+    "knowledge_676d15ab839f7.jpg"
+  ],
+  "image_count": 6
+}

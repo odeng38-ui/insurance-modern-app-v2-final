@@ -1,0 +1,23 @@
+{
+  "folder_name": "가족+간병보험",
+  "title": "가족 간병보험",
+  "category": "간병보험",
+  "tags": [
+    "간병"
+  ],
+  "summary": "가족 간병보험에 대한 보험 카드뉴스입니다. 5개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "가족 간병보험 관련 주요 정보 1",
+    "가족 간병보험 관련 주요 정보 2",
+    "가족 간병보험 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_68019a048447e.png",
+    "knowledge_68019a04af6a0.png",
+    "knowledge_68019a04d72c0.png",
+    "knowledge_68019a050f944.png",
+    "knowledge_68019a0536df6.png"
+  ],
+  "image_count": 5
+}

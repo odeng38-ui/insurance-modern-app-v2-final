@@ -1,0 +1,24 @@
+{
+  "folder_name": "NGS유전자검사",
+  "title": "NGS유전자검사",
+  "category": "암보험",
+  "tags": [
+    "암보험"
+  ],
+  "summary": "NGS유전자검사에 대한 보험 카드뉴스입니다. 6개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "NGS유전자검사 관련 주요 정보 1",
+    "NGS유전자검사 관련 주요 정보 2",
+    "NGS유전자검사 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_6389a9290d4ef.jpg",
+    "knowledge_6389a92941f54.jpg",
+    "knowledge_6389a929707fe.jpg",
+    "knowledge_6389a929a0255.jpg",
+    "knowledge_6389a929c824a.jpg",
+    "knowledge_6389a92a01a18.jpg"
+  ],
+  "image_count": 6
+}

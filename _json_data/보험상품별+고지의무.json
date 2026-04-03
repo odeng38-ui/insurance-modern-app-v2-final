@@ -1,0 +1,27 @@
+{
+  "folder_name": "보험상품별+고지의무",
+  "title": "보험상품별 고지의무",
+  "category": "보험 일반",
+  "tags": [
+    "보험 일반"
+  ],
+  "summary": "보험상품별 고지의무에 대한 보험 카드뉴스입니다. 9개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "보험상품별 고지의무 관련 주요 정보 1",
+    "보험상품별 고지의무 관련 주요 정보 2",
+    "보험상품별 고지의무 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_64d334ef0c8ec.jpg",
+    "knowledge_64d334ef36bea.jpg",
+    "knowledge_64d334ef6df62.jpg",
+    "knowledge_64d334ef9332f.jpg",
+    "knowledge_64d334efb9e59.jpg",
+    "knowledge_64d334efe7ad1.jpg",
+    "knowledge_64d334f01f32d.jpg",
+    "knowledge_64d334f047433.jpg",
+    "knowledge_64d334f06e2cc.jpg"
+  ],
+  "image_count": 9
+}

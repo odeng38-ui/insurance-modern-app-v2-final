@@ -1,0 +1,24 @@
+{
+  "folder_name": "골절과 보상",
+  "title": "골절과 보상",
+  "category": "상해보험",
+  "tags": [
+    "골절"
+  ],
+  "summary": "골절과 보상에 대한 보험 카드뉴스입니다. 6개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "골절과 보상 관련 주요 정보 1",
+    "골절과 보상 관련 주요 정보 2",
+    "골절과 보상 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_69329f6f447b7.jpg",
+    "knowledge_69329f6f62782.jpg",
+    "knowledge_69329f6f8051a.jpg",
+    "knowledge_69329f6fa3f8b.jpg",
+    "knowledge_69329f6fc4999.jpg",
+    "knowledge_69329f6fe33db.jpg"
+  ],
+  "image_count": 6
+}

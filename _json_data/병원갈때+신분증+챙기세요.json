@@ -1,0 +1,23 @@
+{
+  "folder_name": "병원갈때+신분증+챙기세요",
+  "title": "병원갈때 신분증 챙기세요",
+  "category": "보험 일반",
+  "tags": [
+    "보험 일반"
+  ],
+  "summary": "병원갈때 신분증 챙기세요에 대한 보험 카드뉴스입니다. 5개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "병원갈때 신분증 챙기세요 관련 주요 정보 1",
+    "병원갈때 신분증 챙기세요 관련 주요 정보 2",
+    "병원갈때 신분증 챙기세요 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_664c43cc812d3.jpg",
+    "knowledge_664c43cca8d39.jpg",
+    "knowledge_664c43ccdfd4b.jpg",
+    "knowledge_664c43cd16648.jpg",
+    "knowledge_664c43cd3e13e.jpg"
+  ],
+  "image_count": 5
+}

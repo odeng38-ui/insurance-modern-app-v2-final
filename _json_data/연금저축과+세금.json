@@ -1,0 +1,23 @@
+{
+  "folder_name": "연금저축과+세금",
+  "title": "연금저축과 세금",
+  "category": "연금보험",
+  "tags": [
+    "연금"
+  ],
+  "summary": "연금저축과 세금에 대한 보험 카드뉴스입니다. 5개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "연금저축과 세금 관련 주요 정보 1",
+    "연금저축과 세금 관련 주요 정보 2",
+    "연금저축과 세금 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_64f17cbc67b77.jpg",
+    "knowledge_64f17cbc8e79b.jpg",
+    "knowledge_64f17cbcb6f68.jpg",
+    "knowledge_64f17cbcdfd06.jpg",
+    "knowledge_64f17cbd10b08.jpg"
+  ],
+  "image_count": 5
+}

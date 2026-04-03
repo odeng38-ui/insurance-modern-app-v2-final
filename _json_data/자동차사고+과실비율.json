@@ -1,0 +1,29 @@
+{
+  "folder_name": "자동차사고+과실비율",
+  "title": "자동차사고 과실비율",
+  "category": "실손보험",
+  "tags": [
+    "실손"
+  ],
+  "summary": "자동차사고 과실비율에 대한 보험 카드뉴스입니다. 11개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "자동차사고 과실비율 관련 주요 정보 1",
+    "자동차사고 과실비율 관련 주요 정보 2",
+    "자동차사고 과실비율 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_64093b56db671.jpg",
+    "knowledge_64093b57194f2.jpg",
+    "knowledge_64093b5744014.jpg",
+    "knowledge_64093b576f405.jpg",
+    "knowledge_64093b579b19b.jpg",
+    "knowledge_64093b57c57d7.jpg",
+    "knowledge_64093b5805862.jpg",
+    "knowledge_64093b5840456.jpg",
+    "knowledge_64093b587b851.jpg",
+    "knowledge_64093b58a24cf.jpg",
+    "knowledge_64093b58d57f5.jpg"
+  ],
+  "image_count": 11
+}

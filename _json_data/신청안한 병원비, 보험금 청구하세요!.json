@@ -1,0 +1,25 @@
+{
+  "folder_name": "신청안한 병원비, 보험금 청구하세요!",
+  "title": "신청안한 병원비 보험금 청구",
+  "category": "실손보험",
+  "tags": [
+    "미신청",
+    "병원비",
+    "청구"
+  ],
+  "summary": "보험금 신청을 하지 않은 병원비도 청구 가능함을 안내합니다.",
+  "content": "사후 보험금 청구 방법 및 필요 서류, 청구 기한 안내",
+  "key_points": [
+    "사후청구",
+    "청구기한",
+    "필요서류"
+  ],
+  "images": [
+    "knowledge_65aa2207639f0.jpg",
+    "knowledge_65aa22078b208.jpg",
+    "knowledge_65aa2207b3188.jpg",
+    "knowledge_65aa2207dd9a0.jpg",
+    "knowledge_65aa22080e34d.jpg"
+  ],
+  "image_count": 5
+}

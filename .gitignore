@@ -22,5 +22,5 @@ yarn-error.log*
 .supabase/
 
 # Local data
-_json_data/
+# _json_data/ (No longer ignored to allow for fresh re-ingest and tracking)
 scripts/backup/

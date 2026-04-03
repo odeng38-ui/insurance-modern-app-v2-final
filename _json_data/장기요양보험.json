@@ -1,0 +1,24 @@
+{
+  "folder_name": "장기요양보험",
+  "title": "장기요양보험",
+  "category": "간병보험",
+  "tags": [
+    "간병보험"
+  ],
+  "summary": "장기요양보험에 대한 보험 카드뉴스입니다. 6개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "장기요양보험 관련 주요 정보 1",
+    "장기요양보험 관련 주요 정보 2",
+    "장기요양보험 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_66c550217784b.jpg",
+    "knowledge_66c55021a5c25.jpg",
+    "knowledge_66c55021d78a9.jpg",
+    "knowledge_66c5502213d93.jpg",
+    "knowledge_66c5502244da3.jpg",
+    "knowledge_66c5502276be6.jpg"
+  ],
+  "image_count": 6
+}

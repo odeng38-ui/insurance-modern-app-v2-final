@@ -1,0 +1,23 @@
+{
+  "folder_name": "실손보험재매입",
+  "title": "실손보험재매입",
+  "category": "실손보험",
+  "tags": [
+    "실손"
+  ],
+  "summary": "실손보험재매입에 대한 보험 카드뉴스입니다. 5개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "실손보험재매입 관련 주요 정보 1",
+    "실손보험재매입 관련 주요 정보 2",
+    "실손보험재매입 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_67900c1b85b55.jpg",
+    "knowledge_67900c1bb2288.jpg",
+    "knowledge_67900c1bdcc5b.jpg",
+    "knowledge_67900c1c14f7d.jpg",
+    "knowledge_67900c1c42734.jpg"
+  ],
+  "image_count": 5
+}

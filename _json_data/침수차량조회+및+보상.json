@@ -1,0 +1,23 @@
+{
+  "folder_name": "침수차량조회+및+보상",
+  "title": "침수차량조회 및 보상",
+  "category": "화재보험",
+  "tags": [
+    "화재보험"
+  ],
+  "summary": "침수차량조회 및 보상에 대한 보험 카드뉴스입니다. 5개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "침수차량조회 및 보상 관련 주요 정보 1",
+    "침수차량조회 및 보상 관련 주요 정보 2",
+    "침수차량조회 및 보상 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_66baf58d47338.jpg",
+    "knowledge_66baf58d75941.jpg",
+    "knowledge_66baf58d9d8ff.jpg",
+    "knowledge_66baf58dc7c9f.jpg",
+    "knowledge_66baf58df1369.jpg"
+  ],
+  "image_count": 5
+}

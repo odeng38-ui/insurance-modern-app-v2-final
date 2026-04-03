@@ -1,0 +1,28 @@
+{
+  "folder_name": "순환계질환",
+  "title": "순환계질환",
+  "category": "보험 일반",
+  "tags": [
+    "보험 일반"
+  ],
+  "summary": "순환계질환에 대한 보험 카드뉴스입니다. 10개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "순환계질환 관련 주요 정보 1",
+    "순환계질환 관련 주요 정보 2",
+    "순환계질환 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_64f146fbe2077.jpg",
+    "knowledge_64f146fc17281.jpg",
+    "knowledge_64f146fc574fd.jpg",
+    "knowledge_64f146fc7ec3d.jpg",
+    "knowledge_64f146fca6d59.jpg",
+    "knowledge_64f146fcce9d5.jpg",
+    "knowledge_64f146fd026e4.jpg",
+    "knowledge_64f146fd2af50.jpg",
+    "knowledge_64f146fd5bdcc.jpg",
+    "knowledge_64f146fd89b89.jpg"
+  ],
+  "image_count": 10
+}

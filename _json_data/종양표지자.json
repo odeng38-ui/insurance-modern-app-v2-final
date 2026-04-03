@@ -1,0 +1,24 @@
+{
+  "folder_name": "종양표지자",
+  "title": "종양표지자",
+  "category": "암보험",
+  "tags": [
+    "암보험"
+  ],
+  "summary": "종양표지자에 대한 보험 카드뉴스입니다. 6개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "종양표지자 관련 주요 정보 1",
+    "종양표지자 관련 주요 정보 2",
+    "종양표지자 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_64f17fbd9e7e0.jpg",
+    "knowledge_64f17fbdc4488.jpg",
+    "knowledge_64f17fbdec50f.jpg",
+    "knowledge_64f17fbe20200.jpg",
+    "knowledge_64f17fbe46e11.jpg",
+    "knowledge_64f17fbe6adc2.jpg"
+  ],
+  "image_count": 6
+}

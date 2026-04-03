@@ -1,0 +1,23 @@
+{
+  "folder_name": "림프절+전이",
+  "title": "림프절 전이",
+  "category": "보험 일반",
+  "tags": [
+    "보험 일반"
+  ],
+  "summary": "림프절 전이에 대한 보험 카드뉴스입니다. 5개의 이미지로 구성되어 있습니다.",
+  "content": "이미지에서 추출한 텍스트",
+  "key_points": [
+    "림프절 전이 관련 주요 정보 1",
+    "림프절 전이 관련 주요 정보 2",
+    "림프절 전이 관련 주요 정보 3"
+  ],
+  "images": [
+    "knowledge_637c76c6b31df.jpg",
+    "knowledge_637c76c6e0e35.jpg",
+    "knowledge_637c76c71b86d.jpg",
+    "knowledge_637c76c74d2d9.jpg",
+    "knowledge_637c76c7873b5.jpg"
+  ],
+  "image_count": 5
+}
