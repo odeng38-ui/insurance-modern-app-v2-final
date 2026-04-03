@@ -226,7 +226,7 @@ export default function Home() {
             className="text-slate-400 text-lg mb-12 max-w-2xl mx-auto font-medium"
           >
             {activeTab === "cards" ? (
-              <>397개의 방대한 보험 카드뉴스를 즉시 검색하세요. <br/> 전문성은 높이고, 설명은 더 쉬워지도록 도와드립니다.</>
+              <>{cards.length}개의 방대한 보험 카드뉴스를 즉시 검색하세요. <br/> 전문성은 높이고, 설명은 더 쉬워지도록 도와드립니다.</>
             ) : (
               <>전국 6만 건 이상의 표준질병사인분류(KCD-9) 마스터 DB. <br/> 질병코드와 명칭을 실시간으로 확인하고 상담에 활용하세요.</>
             )}
