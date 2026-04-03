@@ -19,8 +19,10 @@ export default function ImageSlider({ cardId, images, title }: ImageSliderProps)
     const sanitizedFolder = title
       .replace(/&amp;/g, " ")
       .replace(/&#039;/g, "")
+      .replace(/ /g, "+")
       .trim();
-    const folderName = encodeURIComponent(sanitizedFolder);
+    // %2B 대신 실제 + 기호를 사용하기 위해 수동 인코딩 조정
+    const folderName = encodeURIComponent(sanitizedFolder).replace(/%2B/g, "+");
     return `/images/cards/${folderName}/${filename.toLowerCase()}`;
   };
 
