@@ -29,9 +29,36 @@ export default function CardItem({ card }: CardItemProps) {
     return "/placeholder-insurance.jpg";
   };
 
+  // Supabase Storage URL (fallback)
+  const getSupabaseThumbnailUrl = () => {
+    if (card.images && card.images.length > 0) {
+      const filename = card.images[0].toLowerCase();
+      return `${supabaseUrl}/storage/v1/object/public/card-images/${card.id}/${filename}`;
+    }
+    return null;
+  };
+
   const handleImgError = (e: React.SyntheticEvent<HTMLImageElement>) => {
     const img = e.currentTarget;
-    img.src = "/placeholder-insurance.jpg"; 
+    // onerror를 먼저 제거하여 무한 루프 방지
+    img.onerror = null;
+
+    if (img.dataset.fallback === "supabase") {
+      // 모든 소스 실패 → 회색 배경으로 대체 (파일 의존성 없음)
+      img.style.display = "none";
+    } else {
+      // 로컬 실패 → Supabase Storage 시도
+      const supabaseUrl = getSupabaseThumbnailUrl();
+      if (supabaseUrl) {
+        img.dataset.fallback = "supabase";
+        img.onerror = (ev) => {
+          (ev.target as HTMLImageElement).style.display = "none";
+        };
+        img.src = supabaseUrl;
+      } else {
+        img.style.display = "none";
+      }
+    }
   };
 
   return (
