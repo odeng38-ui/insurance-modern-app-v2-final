@@ -184,7 +184,7 @@ export default function Home() {
                 <span className="text-[10px] font-black text-slate-500 truncate max-w-[100px]">{user.email}</span>
              </div>
              
-             {isAdmin(user?.email) && (
+             {isAdmin(user?.email || user?.user_metadata?.email) && (
                <Link 
                  href="/admin"
                  className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl text-[10px] font-black uppercase hover:bg-blue-700 transition-all shadow-lg shadow-blue-200"
