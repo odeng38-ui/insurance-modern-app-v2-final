@@ -150,7 +150,8 @@ const ADMIN_EMAILS = ["odeng38@gmail.com"];
 
 export function isAdmin(email: string | undefined | null) {
   if (!email) return false;
-  return ADMIN_EMAILS.some(adminEmail => adminEmail.toLowerCase() === email.toLowerCase());
+  const normalizedEmail = email.trim().toLowerCase();
+  return ADMIN_EMAILS.some(adminEmail => adminEmail.toLowerCase() === normalizedEmail);
 }
 
 export async function createInsuranceCard(card: Omit<InsuranceCard, "id">) {
