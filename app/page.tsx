@@ -51,6 +51,7 @@ export default function Home() {
     let mounted = true;
 
     async function checkUser() {
+      console.log("ANTIGRAVITY_DEPLOY_CHECK_V2_1410");
       try {
         const { data: { session } } = await supabase.auth.getSession();
         if (mounted) {
