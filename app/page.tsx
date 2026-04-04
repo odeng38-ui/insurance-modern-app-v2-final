@@ -187,10 +187,10 @@ export default function Home() {
              {isAdmin(user?.email || user?.user_metadata?.email) && (
                <Link 
                  href="/admin"
-                 className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl text-[10px] font-black uppercase hover:bg-blue-700 transition-all shadow-lg shadow-blue-200"
+                 className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-xl text-[11px] font-black uppercase hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200 border border-indigo-400/30 anim-pulse-subtle"
                >
-                 <Lock className="w-3.5 h-3.5" />
-                 관리자 기능
+                 <Settings className="w-3.5 h-3.5" />
+                 관리자페이지
                </Link>
              )}
 

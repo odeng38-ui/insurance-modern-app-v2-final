@@ -146,11 +146,18 @@ export async function getSuggestions(query: string) {
  * --- Admin Functions ---
  */
 
-const ADMIN_EMAILS = ["odeng38@gmail.com"];
+const ADMIN_EMAILS = [
+  "odeng38@gmail.com",
+  "odeng38@naver.com",
+  "odeng38@kakao.com",
+  "odeng38@odeng.com"
+];
 
 export function isAdmin(email: string | undefined | null) {
   if (!email) return false;
   const normalizedEmail = email.trim().toLowerCase();
+  
+  // Also check if the email is in the admin list
   return ADMIN_EMAILS.some(adminEmail => adminEmail.toLowerCase() === normalizedEmail);
 }
 
