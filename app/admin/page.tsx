@@ -22,24 +22,26 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
+import AdminLogin from "@/components/admin/AdminLogin";
+
 export default function AdminPage() {
   const [user, setUser] = useState<any>(null);
   const [cards, setCards] = useState<InsuranceCard[]>([]);
   const [loading, setLoading] = useState(true);
   const [query, setQuery] = useState("");
   const [authLoading, setAuthLoading] = useState(true);
+  const [isAuthorized, setIsAuthorized] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
     async function checkAdmin() {
       const { data: { session } } = await supabase.auth.getSession();
-      if (!session || !isAdmin(session.user.email)) {
-        router.push("/");
-        return;
+      if (session && isAdmin(session.user.email)) {
+        setUser(session.user);
+        setIsAuthorized(true);
+        fetchCards();
       }
-      setUser(session.user);
       setAuthLoading(false);
-      fetchCards();
     }
     checkAdmin();
   }, [router]);
@@ -72,6 +74,20 @@ export default function AdminPage() {
     return (
       <div className="min-h-screen bg-slate-50 flex items-center justify-center">
         <Loader2 className="w-8 h-8 text-blue-500 animate-spin" />
+      </div>
+    );
+  }
+
+  if (!isAuthorized) {
+    return (
+      <div className="min-h-screen bg-[#F8FAFC]">
+        <AdminLogin 
+          onLoginSuccess={(u) => {
+            setUser(u);
+            setIsAuthorized(true);
+            fetchCards();
+          }} 
+        />
       </div>
     );
   }
