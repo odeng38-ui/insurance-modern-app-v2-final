@@ -144,7 +144,7 @@ export default function Home() {
             <ShieldCheck className="w-10 h-10 text-white" />
           </div>
           <h1 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tighter">
-            보험 데이터 <span className="text-blue-400">전용 포털</span>
+            보험 데이터 <span className="text-blue-400">전용 포털 - v2</span>
           </h1>
           <p className="text-slate-400 font-medium mb-10">승인된 전문가 전용 공간입니다. 로그인을 진행해 주세요.</p>
 
