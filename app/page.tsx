@@ -6,7 +6,8 @@ import {
   getSuggestions, 
   signInWithGoogle, 
   signOut,
-  supabase
+  supabase,
+  isAdmin
 } from "@/lib/supabase";
 import { InsuranceCard } from "@/lib/types";
 import CardGrid from "@/components/CardGrid";
@@ -14,8 +15,10 @@ import CategoryFilter from "@/components/CategoryFilter";
 import DiseaseSearch from "@/components/DiseaseSearch";
 import { 
   Search, ShieldCheck, Sparkles, Filter, ChevronDown, 
-  BookOpen, Layers, LogIn, LogOut, User, Lock, Globe 
+  BookOpen, Layers, LogIn, LogOut, User, Lock, Globe,
+  Settings
 } from "lucide-react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Home() {
@@ -174,12 +177,23 @@ export default function Home() {
           </div>
           
           <div className="flex items-center gap-4">
-             <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 bg-slate-50 rounded-full border border-slate-100">
+             <div className="flex items-center gap-2 px-3 py-1.5 bg-slate-50 rounded-full border border-slate-100">
                 <div className="w-5 h-5 rounded-full bg-blue-500 overflow-hidden">
                    {user.user_metadata?.avatar_url && <img src={user.user_metadata.avatar_url} alt="Profile" />}
                 </div>
                 <span className="text-[10px] font-black text-slate-500 truncate max-w-[100px]">{user.email}</span>
              </div>
+             
+             {isAdmin(user?.email) && (
+               <Link 
+                 href="/admin"
+                 className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl text-[10px] font-black uppercase hover:bg-blue-700 transition-all shadow-lg shadow-blue-200"
+               >
+                 <Lock className="w-3.5 h-3.5" />
+                 관리자 기능
+               </Link>
+             )}
+
              <button 
                onClick={() => signOut()}
                className="flex items-center gap-2 text-slate-400 hover:text-red-500 transition-colors"

@@ -141,3 +141,57 @@ export async function getSuggestions(query: string) {
 
   return data.map((item) => item.title);
 }
+
+/**
+ * --- Admin Functions ---
+ */
+
+const ADMIN_EMAILS = ["odeng38@gmail.com"];
+
+export function isAdmin(email: string | undefined | null) {
+  if (!email) return false;
+  return ADMIN_EMAILS.some(adminEmail => adminEmail.toLowerCase() === email.toLowerCase());
+}
+
+export async function createInsuranceCard(card: Omit<InsuranceCard, "id">) {
+  const { data, error } = await supabase
+    .from("insurance_cards")
+    .insert([card])
+    .select()
+    .single();
+
+  if (error) {
+    console.error("Create Error:", error.message);
+    throw new Error("자료 등록 중 오류가 발생했습니다: " + error.message);
+  }
+
+  return data as InsuranceCard;
+}
+
+export async function updateInsuranceCard(id: string, card: Partial<InsuranceCard>) {
+  const { data, error } = await supabase
+    .from("insurance_cards")
+    .update(card)
+    .eq("id", id)
+    .select()
+    .single();
+
+  if (error) {
+    console.error("Update Error:", error.message);
+    throw new Error("자료 수정 중 오류가 발생했습니다: " + error.message);
+  }
+
+  return data as InsuranceCard;
+}
+
+export async function deleteInsuranceCard(id: string) {
+  const { error } = await supabase
+    .from("insurance_cards")
+    .delete()
+    .eq("id", id);
+
+  if (error) {
+    console.error("Delete Error:", error.message);
+    throw new Error("자료 삭제 중 오류가 발생했습니다: " + error.message);
+  }
+}
