@@ -1,0 +1,12 @@
+public/images/cards/
+# Ignore large local data and scripts not needed for production build
+_json_data/
+scripts/
+*.py
+_db_status.txt
+_folder_list.txt
+_tmp_*.json
+actual_folders.txt
+json_titles.txt
+mismatch_report.json
+unlock.sql
