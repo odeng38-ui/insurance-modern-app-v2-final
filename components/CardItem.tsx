@@ -18,15 +18,17 @@ export default function CardItem({ card }: CardItemProps) {
     if (card.images && card.images.length > 0) {
       const filename = card.images[0].toLowerCase();
       // 폴더명과 일치시키기 위해 데이터의 제목에서 특수문자 정화
+      // Windows 폴더명에서 허용되지 않는 문자나 공백 처리
       const sanitizedFolder = card.title
         .replace(/&amp;/g, " ")
         .replace(/&#039;/g, "")
+        .replace(/[\\/:*?"<>|]/g, "") // Windows forbidden chars
         .trim();
       
       const folderName = encodeURIComponent(sanitizedFolder);
       return `/images/cards/${folderName}/${filename}`;
     }
-    return "/placeholder-insurance.jpg";
+    return ""; // Return empty string instead of null to satisfy type
   };
 
   // Supabase Storage URL (fallback)
@@ -35,31 +37,37 @@ export default function CardItem({ card }: CardItemProps) {
       const filename = card.images[0].toLowerCase();
       return `${supabaseUrl}/storage/v1/object/public/card-images/${card.id}/${filename}`;
     }
-    return null;
+    return "";
   };
 
   const handleImgError = (e: React.SyntheticEvent<HTMLImageElement>) => {
     const img = e.currentTarget;
-    // onerror를 먼저 제거하여 무한 루프 방지
     img.onerror = null;
 
     if (img.dataset.fallback === "supabase") {
-      // 모든 소스 실패 → 회색 배경으로 대체 (파일 의존성 없음)
+      // Both failed, hide and show a colored placeholder div
       img.style.display = "none";
+      const parent = img.parentElement;
+      if (parent) {
+        // Prevent duplicate placeholders
+        if (!parent.querySelector(".custom-placeholder")) {
+          const placeholder = document.createElement("div");
+          placeholder.className = "custom-placeholder w-full h-full bg-slate-800 flex items-center justify-center text-slate-600";
+          placeholder.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>';
+          parent.appendChild(placeholder);
+        }
+      }
     } else {
-      // 로컬 실패 → Supabase Storage 시도
-      const supabaseUrl = getSupabaseThumbnailUrl();
-      if (supabaseUrl) {
+      const sUrl = getSupabaseThumbnailUrl();
+      if (sUrl) {
         img.dataset.fallback = "supabase";
-        img.onerror = (ev) => {
-          (ev.target as HTMLImageElement).style.display = "none";
-        };
-        img.src = supabaseUrl;
+        img.src = sUrl;
       } else {
         img.style.display = "none";
       }
     }
   };
+
 
   return (
     <motion.div
@@ -73,12 +81,18 @@ export default function CardItem({ card }: CardItemProps) {
           <div className="relative h-56 overflow-hidden">
             {/* Background Image with Overlay */}
             <div className="absolute inset-0 z-0">
-               <img
-                  src={getThumbnailUrl()}
-                  alt={card.title}
-                  onError={handleImgError}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-               />
+               {getThumbnailUrl() ? (
+                 <img
+                    src={getThumbnailUrl()}
+                    alt={card.title}
+                    onError={handleImgError}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                 />
+               ) : (
+                 <div className="w-full h-full bg-slate-800 flex items-center justify-center text-slate-600">
+                    <BookOpen className="w-12 h-12" />
+                 </div>
+               )}
                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-60"></div>
             </div>
 

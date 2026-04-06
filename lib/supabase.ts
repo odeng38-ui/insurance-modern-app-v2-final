@@ -30,8 +30,8 @@ export async function searchInsuranceCards(query: string, category?: string) {
       config: "simple",
     });
   } else {
-    // Default: latest or sort by title
-    rpcQuery = rpcQuery.order('created_at', { ascending: false });
+    // Default: Sort by title or other existing field
+    rpcQuery = rpcQuery.order('title', { ascending: true });
   }
 
   const { data, error } = await rpcQuery.limit(500);
@@ -69,29 +69,16 @@ export async function searchDiseaseCodes(query: string) {
   const cleanQuery = query.trim();
   if (!cleanQuery) return [];
 
-  // if query is short (under 3 chars), strictly search only code prefix and Korean name
-  // This prevents common alphabets (a, e, i...) in English names from polluting results
-  if (cleanQuery.length < 3) {
-    const { data, error } = await supabase
-      .from('disease_codes')
-      .select('*')
-      .or(`code.ilike.${cleanQuery}%,name_ko.ilike.%${cleanQuery}%`)
-      .order('code', { ascending: true })
-      .limit(50);
-      
-    if (error) return [];
-    return data;
-  }
-
-  // normal full search for longer terms
+  // 검색어를 코드(code) 필드에만 한정하여 검색하도록 수정 (사용자 요청)
   const { data, error } = await supabase
     .from('disease_codes')
     .select('*')
-    .or(`code.ilike.${cleanQuery}%,name_ko.ilike.%${cleanQuery}%,name_en.ilike.%${cleanQuery}%`)
+    .ilike('code', `${cleanQuery}%`)
     .order('code', { ascending: true })
-    .limit(50);
+    .limit(100);
 
   if (error) {
+    console.error("Disease Search Error:", error.message);
     return [];
   }
 

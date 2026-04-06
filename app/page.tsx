@@ -354,7 +354,7 @@ export default function Home() {
                       <h2 className="text-2xl font-black text-slate-800 tracking-tight">자료 검색 결과</h2>
                    </div>
                    <p className="text-slate-400 text-sm font-semibold ml-5">
-                     {loading ? "데이터를 분석 중입니다..." : `총 ${cards.length}건의 전문 카드뉴스가 발견되었습니다.`}
+                     {loading ? "데이터를 분석 중입니다..." : "필터와 검색어에 맞는 최신 보험 정보를 확인하세요."}
                    </p>
                 </div>
 
@@ -367,13 +367,20 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Categories Section */}
-              <div className="mb-14 overflow-x-auto pb-4 scrollbar-hide">
-                <CategoryFilter 
-                  categories={categories}
-                  selected={selectedCategory}
-                  onSelect={setSelectedCategory}
-                />
+              {/* Categories & Results Count Section */}
+              <div className="mb-10 flex flex-col md:flex-row items-start md:items-center gap-6">
+                <div className="flex items-center gap-3 bg-white px-5 py-3 rounded-2xl shadow-sm border border-slate-100 min-w-fit">
+                  <div className="w-2 h-2 bg-blue-500 rounded-full anim-pulse-subtle"></div>
+                  <span className="text-sm font-black text-slate-700">총 {cards.length}건의 자료</span>
+                </div>
+                
+                <div className="w-full overflow-x-auto pb-4 no-scrollbar">
+                  <CategoryFilter 
+                    categories={categories}
+                    selected={selectedCategory}
+                    onSelect={setSelectedCategory}
+                  />
+                </div>
               </div>
 
               {/* Card Grid */}

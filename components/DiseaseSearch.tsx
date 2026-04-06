@@ -53,7 +53,7 @@ export default function DiseaseSearch() {
           </div>
           <input
             type="text"
-            placeholder="질병코드(A00) 또는 질병명(고혈압, 암...)을 입력하세요"
+            placeholder="검색할 질병코드를 입력하세요 (예: C00, I10, A01...)"
             className="w-full py-5 bg-transparent border-none focus:ring-0 text-slate-800 text-lg font-bold placeholder:text-slate-300"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
