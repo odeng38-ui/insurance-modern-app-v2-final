@@ -26,7 +26,7 @@ export default function CardItem({ card }: CardItemProps) {
         .trim();
       
       const folderName = encodeURIComponent(sanitizedFolder);
-      return `/images/cards/${folderName}/${filename}`;
+      return `/images/_cards_hidden/${folderName}/${filename}`;
     }
     return ""; // Return empty string instead of null to satisfy type
   };

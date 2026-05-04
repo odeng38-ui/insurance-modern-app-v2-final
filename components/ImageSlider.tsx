@@ -22,7 +22,7 @@ export default function ImageSlider({ cardId, images, title }: ImageSliderProps)
       .replace(/[\\/:*?"<>|]/g, "") // Windows forbidden chars
       .trim();
     const folderName = encodeURIComponent(sanitizedFolder);
-    return `/images/cards/${folderName}/${filename.toLowerCase()}`;
+    return `/images/_cards_hidden/${folderName}/${filename.toLowerCase()}`;
 
   };
 

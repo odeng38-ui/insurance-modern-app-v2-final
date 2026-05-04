@@ -170,7 +170,14 @@ export default function AdminPage() {
                     <td className="px-8 py-6">
                       <div className="flex items-center gap-2">
                         <div className="w-10 h-10 bg-slate-100 rounded-lg overflow-hidden border border-slate-200">
-                          {card.images?.[0] && <img src={card.images[0]} alt="" className="w-full h-full object-cover" />}
+                          {card.images?.[0] && (
+                            <img
+                              src={`/images/_cards_hidden/${encodeURIComponent(card.title.replace(/[\\/:*?"<>|]/g, "").trim())}/${card.images[0].toLowerCase()}`}
+                              alt=""
+                              className="w-full h-full object-cover"
+                              onError={(e) => { e.currentTarget.style.display = "none"; }}
+                            />
+                          )}
                         </div>
                         <span className="text-xs font-bold text-slate-400">+{card.image_count} slides</span>
                       </div>

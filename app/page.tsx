@@ -31,10 +31,7 @@ export default function Home() {
         setLoading(false);
       }
     }
-    
-    // Initial fetch or when filters change
-    const timer = setTimeout(fetchCards, 300);
-    return () => clearTimeout(timer);
+    fetchCards();
   }, [query, category]);
 
   return (
