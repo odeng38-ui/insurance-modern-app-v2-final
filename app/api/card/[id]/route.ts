@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCardDetail } from "@/lib/supabase";
 
+export const dynamic = "force-dynamic";
+
 /**
  * GET /api/card/[id]
  * Retrieves details for a specific insurance card.

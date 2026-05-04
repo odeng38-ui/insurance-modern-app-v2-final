@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { searchInsuranceCards } from "@/lib/supabase";
 
+export const dynamic = "force-dynamic";
+
 /**
  * GET /api/search?q=query&cat=category
  * Searches for insurance cards.
