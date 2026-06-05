@@ -15,8 +15,8 @@ export default function CardItem({ card }: CardItemProps) {
 
   // 100% 로컬 public 폴더 경로 기반 썸네일 (최우선)
   const getThumbnailUrl = () => {
-    if (card.images && card.images.length > 0) {
-      const filename = card.images[0].toLowerCase();
+    if (card.images && card.images.length > 0 && card.images[0]) {
+      const filename = String(card.images[0]).toLowerCase();
       // 폴더명과 일치시키기 위해 데이터의 제목에서 특수문자 정화
       // Windows 폴더명에서 허용되지 않는 문자나 공백 처리
       const sanitizedFolder = card.title
@@ -33,8 +33,8 @@ export default function CardItem({ card }: CardItemProps) {
 
   // Supabase Storage URL (fallback)
   const getSupabaseThumbnailUrl = () => {
-    if (card.images && card.images.length > 0) {
-      const filename = card.images[0].toLowerCase();
+    if (card.images && card.images.length > 0 && card.images[0]) {
+      const filename = String(card.images[0]).toLowerCase();
       return `${supabaseUrl}/storage/v1/object/public/card-images/${card.id}/${filename}`;
     }
     return "";
