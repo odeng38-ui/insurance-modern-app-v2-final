@@ -35,3 +35,22 @@ export async function getCardDetail(id: string) {
     throw error;
   }
 }
+
+/**
+ * Searches for disease codes using D1 API Route
+ */
+export async function searchDiseaseCodes(query: string) {
+  try {
+    const url = new URL('/api/disease', window.location.origin);
+    if (query) url.searchParams.append('query', query);
+
+    const res = await fetch(url.toString());
+    if (!res.ok) throw new Error('Failed to fetch disease codes');
+    
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("Disease Search Error:", error);
+    return [];
+  }
+}
