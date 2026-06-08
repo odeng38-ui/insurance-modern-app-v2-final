@@ -7,7 +7,7 @@ export async function GET(request: Request) {
   const query = searchParams.get('query');
 
   const accountId = process.env.CLOUDFLARE_ACCOUNT_ID;
-  const dbId = process.env.CLOUDFLARE_D1_DATABASE_ID;
+  const dbId = process.env.CLOUDFLARE_DATABASE_ID;
   const apiToken = process.env.CLOUDFLARE_API_TOKEN;
 
   if (!accountId || !dbId || !apiToken) {
