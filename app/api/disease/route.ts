@@ -28,10 +28,27 @@ export async function GET(request: Request) {
       return NextResponse.json([]);
     }
 
+    // If query is a single alphabet character (A, B, I...), strictly search only by code prefix
+    // to avoid matching millions of entries containing the character in Korean/English names
+    if (cleanQuery.length === 1 && /^[a-zA-Z]$/.test(cleanQuery)) {
+      const sql = `SELECT * FROM disease_codes WHERE code LIKE ? ORDER BY code ASC LIMIT 50`;
+      const params = [`${cleanQuery.toUpperCase()}%`];
+      
+      const res = await fetch(d1Url, {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({ sql, params }),
+      });
+      const data = await res.json();
+      if (data.success && data.result && data.result.length > 0) {
+        results = data.result[0].results || [];
+      }
+    } 
     // if query is short (under 3 chars), strictly search only code prefix and Korean name
-    if (cleanQuery.length < 3) {
+    // This prevents common alphabets (a, e, i...) in English names from polluting results
+    else if (cleanQuery.length < 3) {
       const sql = `SELECT * FROM disease_codes WHERE code LIKE ? OR name_ko LIKE ? ORDER BY code ASC LIMIT 50`;
-      const params = [`${cleanQuery}%`, `%${cleanQuery}%`];
+      const params = [`${cleanQuery.toUpperCase()}%`, `%${cleanQuery}%`];
       
       const res = await fetch(d1Url, {
         method: 'POST',
@@ -45,7 +62,7 @@ export async function GET(request: Request) {
     } else {
       // normal full search for longer terms
       const sql = `SELECT * FROM disease_codes WHERE code LIKE ? OR name_ko LIKE ? OR name_en LIKE ? ORDER BY code ASC LIMIT 50`;
-      const params = [`${cleanQuery}%`, `%${cleanQuery}%`, `%${cleanQuery}%`];
+      const params = [`${cleanQuery.toUpperCase()}%`, `%${cleanQuery}%`, `%${cleanQuery}%`];
       
       const res = await fetch(d1Url, {
         method: 'POST',
